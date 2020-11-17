@@ -1,0 +1,465 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Characteristic xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:noNamespaceSchemaLocation="http://schemas.bluetooth.org/Documents/characteristic.xsd"
+  type="com.nistcontrol.characteristic.protection_limits"
+  uuid="c7aa9eff-08d4-471f-a8b7-94e2377e37b9"
+  name="protection_limits">
+  <InformativeText>
+    <Abstract />
+    <InformativeDisclaimer />
+    <Summary>This characteristic contains all general protection fields</Summary>
+    <Examples />
+  </InformativeText>
+  <Value>
+    <Field
+      name="General Info">
+      <InformativeText>This bit field shall contain general flags regarding the hardware configuration of the MS4 product.</InformativeText>
+      <Requirement>Mandatory</Requirement>
+      <Format>uint16</Format>
+      <Unit>org.bluetooth.unit.unitless</Unit>
+      <BitField>
+        <Bit
+          index="0"
+          size="1"
+          name="Reserved" />
+        <Bit
+          index="1"
+          size="1"
+          name="Min Phi Monitored">
+          <Enumerations>
+            <Enumeration
+              key="0"
+              value="NO"
+              description="Phi is not monitored, thus the Min Phi limit is not enforced." />
+            <Enumeration
+              key="1"
+              value="YES"
+              description="Phi is monitored and the Min Phi limit is enforced." />
+          </Enumerations>
+        </Bit>
+        <Bit
+          index="2"
+          size="1"
+          name="Thee Measured Voltages">
+          <Enumerations>
+            <Enumeration
+              key="0"
+              value="NO"
+              description="Only the U1 value shall contain valid information" />
+            <Enumeration
+              key="1"
+              value="YES"
+              description="U1, U2 and U3 shall contain valid values" />
+          </Enumerations>
+        </Bit>
+        <Bit
+          index="3"
+          size="1"
+          name="Two Measured Currents">
+          <Enumerations>
+            <Enumeration
+              key="0"
+              value="NO"
+              description="Only I3 shall contain a valid value" />
+            <Enumeration
+              key="1"
+              value="YES"
+              description="I1 and I2 shall contain valid values" />
+          </Enumerations>
+        </Bit>
+        <Bit
+          index="4"
+          size="2"
+          name="Overheat Protection Method">
+          <Enumerations>
+            <Enumeration
+              key="0"
+              value="Maximum Starts Per Hour"
+              description="Overheat Protection is by means of the Maximum Starts Per Hour characteristic" />
+            <Enumeration
+              key="1"
+              value="PTC Thermistor In Motor"
+              description="Overheat protection is done via the use of a PTC thermistor inside the motor." />
+            <Enumeration
+              key="2"
+              value="I2t"
+              description="Overheat protection is done through the I2t method." />
+            <Enumeration
+              key="3"
+              value="ReservedForFutureUse" />
+          </Enumerations>
+        </Bit>
+        <Bit
+          index="6"
+          size="2"
+          name="Load Type">
+          <Enumerations>
+            <Enumeration
+              key="0"
+              value="Standard"
+              description="The load type is a centrifugal pump or a fan" />
+            <Enumeration
+              key="1"
+              value="Pd"
+              description="Load type is possitive displacement" />
+            <Enumeration
+              key="2"
+              value="Compressor"
+              description="The load type is a compressor." />
+            <Enumeration
+              key="3"
+              value="ReservedForFutureUse" />
+          </Enumerations>
+        </Bit>
+        <Bit
+          index="8"
+          size="1"
+          name="CT Position">
+          <Enumerations>
+            <Enumeration
+              key="0"
+              value="External"
+              description="The physical CT is an external CT" />
+            <Enumeration
+              key="1"
+              value="Internal"
+              description="The physical CT is an internal CT" />
+          </Enumerations>
+        </Bit>
+        <Bit
+          index="9"
+          size="1"
+          name="CT Core Material">
+          <Enumerations>
+            <Enumeration
+              key="0"
+              value="Magnetic"
+              description="The CT has a magnetic core" />
+            <Enumeration
+              key="1"
+              value="Air"
+              description="The CT has an air core (Rogowski Coil)" />
+          </Enumerations>
+        </Bit>
+        <Bit
+          index="10"
+          size="1"
+          name="CT Secondary Side Amp Rating">
+          <Enumerations>
+            <Enumeration
+              key="0"
+              value="1" />
+            <Enumeration
+              key="1"
+              value="5" />
+          </Enumerations>
+        </Bit>
+        <Bit
+          index="11"
+          size="5"
+          name="CT Primary Side Amp Rating">
+          <Enumerations>
+            <Enumeration
+              key="0"
+              value="60" />
+            <Enumeration
+              key="1"
+              value="75" />
+            <Enumeration
+              key="10"
+              value="400" />
+            <Enumeration
+              key="11"
+              value="500" />
+            <Enumeration
+              key="12"
+              value="600" />
+            <Enumeration
+              key="13"
+              value="750" />
+            <Enumeration
+              key="14"
+              value="800" />
+            <Enumeration
+              key="15"
+              value="1000" />
+            <Enumeration
+              key="16"
+              value="1200" />
+            <Enumeration
+              key="17"
+              value="1250" />
+            <Enumeration
+              key="18"
+              value="1500" />
+            <Enumeration
+              key="19"
+              value="1600" />
+            <Enumeration
+              key="2"
+              value="80" />
+            <Enumeration
+              key="20"
+              value="2000" />
+            <Enumeration
+              key="21"
+              value="2500" />
+            <Enumeration
+              key="22"
+              value="3000" />
+            <Enumeration
+              key="23"
+              value="4000" />
+            <Enumeration
+              key="3"
+              value="100" />
+            <Enumeration
+              key="4"
+              value="125" />
+            <Enumeration
+              key="5"
+              value="150" />
+            <Enumeration
+              key="6"
+              value="175" />
+            <Enumeration
+              key="7"
+              value="200" />
+            <Enumeration
+              key="8"
+              value="250" />
+            <Enumeration
+              key="9"
+              value="300" />
+            <ReservedForFutureUse
+              start="24"
+              end="31"
+              name="Reserved" />
+          </Enumerations>
+        </Bit>
+      </BitField>
+    </Field>
+    <Field
+      name="Limits Binary Exponents">
+      <InformativeText>This field contains the binary exponents of the Power, Voltage and Current Limits.</InformativeText>
+      <Requirement>Mandatory</Requirement>
+      <Format>uint8</Format>
+      <Unit>org.bluetooth.unit.unitless</Unit>
+      <BitField>
+        <Bit
+          index="0"
+          size="3"
+          name="Current Binary Exponent">
+          <Enumerations>
+            <Enumeration
+              key="0"
+              value="-4" />
+            <Enumeration
+              key="1"
+              value="-3" />
+            <Enumeration
+              key="2"
+              value="-2" />
+            <Enumeration
+              key="3"
+              value="-1" />
+            <Enumeration
+              key="4"
+              value="0" />
+            <Enumeration
+              key="5"
+              value="1" />
+            <Enumeration
+              key="6"
+              value="2" />
+            <Enumeration
+              key="7"
+              value="3" />
+          </Enumerations>
+        </Bit>
+        <Bit
+          index="3"
+          size="1"
+          name="Voltage Binary Exponent">
+          <Enumerations>
+            <Enumeration
+              key="0"
+              value="1" />
+            <Enumeration
+              key="1"
+              value="2" />
+          </Enumerations>
+        </Bit>
+        <Bit
+          index="4"
+          size="4"
+          name="Power Binary Exponent">
+          <Enumerations>
+            <Enumeration
+              key="0"
+              value="0" />
+            <Enumeration
+              key="1"
+              value="1" />
+            <Enumeration
+              key="2"
+              value="2" />
+            <Enumeration
+              key="3"
+              value="3" />
+            <Enumeration
+              key="4"
+              value="4" />
+            <Enumeration
+              key="5"
+              value="5" />
+            <Enumeration
+              key="6"
+              value="6" />
+            <Enumeration
+              key="7"
+              value="7" />
+            <Enumeration
+              key="8"
+              value="8" />
+            <Enumeration
+              key="9"
+              value="9" />
+            <Enumeration
+              key="10"
+              value="10" />
+            <Enumeration
+              key="11"
+              value="11" />
+            <Enumeration
+              key="12"
+              value="12" />
+            <Enumeration
+              key="13"
+              value="13" />
+            <Enumeration
+              key="14"
+              value="14" />
+            <Enumeration
+              key="15"
+              value="15" />
+          </Enumerations>
+        </Bit>
+      </BitField>
+    </Field>
+    <Field
+      name="Power Low Limit">
+      <InformativeText>This field contains the limit under which an Underload Error will be triggered.</InformativeText>
+      <Requirement>Mandatory</Requirement>
+      <Format>uint8</Format>
+      <Maximum>255</Maximum>
+      <Minimum>0</Minimum>
+      <Unit>org.bluetooth.unit.power.watt</Unit>
+    </Field>
+    <Field
+      name="Power High Limit">
+      <InformativeText>This field contains the limit over which an Overload Error will be triggered.</InformativeText>
+      <Requirement>Mandatory</Requirement>
+      <Format>uint8</Format>
+      <Maximum>255</Maximum>
+      <Minimum>0</Minimum>
+      <Unit>org.bluetooth.unit.power.watt</Unit>
+    </Field>
+    <Field
+      name="Voltage Low Limit">
+      <InformativeText>This field contains the low limit of the Voltage</InformativeText>
+      <Requirement>Mandatory</Requirement>
+      <Format>uint8</Format>
+      <Maximum>255</Maximum>
+      <Minimum>0</Minimum>
+      <Unit>org.bluetooth.unit.electric_potential_difference.volt</Unit>
+    </Field>
+    <Field
+      name="Voltage High Limit">
+      <InformativeText>This field contains the high limit of the Voltage</InformativeText>
+      <Requirement>Mandatory</Requirement>
+      <Maximum>255</Maximum>
+      <Minimum>0</Minimum>
+      <Unit>org.bluetooth.unit.electric_potential_difference.volt</Unit>
+      <Format>uint8</Format>
+      <Repeated>false</Repeated>
+    </Field>
+    <Field
+      name="Current High Limit">
+      <InformativeText>This field sets the high current limit</InformativeText>
+      <Requirement>Mandatory</Requirement>
+      <Format>uint8</Format>
+      <Maximum>255</Maximum>
+      <Minimum>0</Minimum>
+      <Unit>org.bluetooth.unit.electric_current.ampere</Unit>
+    </Field>
+    <Field
+      name="Min Phi Limit">
+      <InformativeText>This field sets the minimum phase shift (in 0.1 degrees) between the voltage and current of any given phase.</InformativeText>
+      <Requirement>Mandatory</Requirement>
+      <Format>sint16</Format>
+      <Maximum>1800</Maximum>
+      <Minimum>-1800</Minimum>
+      <Unit>org.bluetooth.unit.unitless</Unit>
+    </Field>
+    <Field
+      name="Overheat Protection">
+      <InformativeText>If the Overheat protection method is: Maximum Starts per Hour, then this value shall contain the number of minutes in which a maximum of 4 starts is allowed. 0 = DISABLED. A write of any value &amp;gt; 0 will enable it.
+If the Overheat protection method is: PTC, then this value shall contain the two 8-bit ADC readings of the STOP and START
+If the Overheat protection method is: I2t, then this value shall contain the I2t value where the current uses the same binary exponent as in the Limits Binary Exponent used for the Current High Limit.</InformativeText>
+      <Requirement>Mandatory</Requirement>
+      <Format>uint24</Format>
+      <Unit>org.bluetooth.unit.unitless</Unit>
+      <Repeated>false</Repeated>
+    </Field>
+    <Field
+      name="AUX INPUT">
+      <InformativeText>The value of this field determines whether motor control is STOPPED or AUTO, based on the status of the AUX input</InformativeText>
+      <Requirement>Mandatory</Requirement>
+      <Format>uint8</Format>
+      <Unit>org.bluetooth.unit.unitless</Unit>
+      <BitField />
+      <AdditionalValues />
+      <Enumerations>
+        <Enumeration
+          key="0"
+          value="STOP_WHEN_CLOSED"
+          description="The motor shall be STOPPED when AUX-COM bridge is CLOSED" />
+        <Enumeration
+          key="1"
+          value="STOP_WHEN_OPENED"
+          description="The motor shall be STOPPED when AUX-COM bridge is OPENED" />
+      </Enumerations>
+      <Repeated>false</Repeated>
+    </Field>
+    <Field
+      name="MAX CURRENT USER">
+      <InformativeText>This field contains the CURRENT HIGH LIMIT value as selected by the user during the "Assisted Calibration Procedure"</InformativeText>
+      <Requirement>Mandatory</Requirement>
+      <Format>uint8</Format>
+      <Maximum>255</Maximum>
+      <Minimum>0</Minimum>
+      <Unit>org.bluetooth.unit.unitless</Unit>
+      <Repeated>false</Repeated>
+    </Field>
+    <Field
+      name="MAX CURRENT MAX">
+      <InformativeText>This field sets the maximum value of the CURRENT HIGH LIMIT field of this characteristic</InformativeText>
+      <Requirement>Mandatory</Requirement>
+      <Unit>org.bluetooth.unit.unitless</Unit>
+      <Format>uint8</Format>
+      <Maximum>255</Maximum>
+      <Minimum>0</Minimum>
+      <Repeated>false</Repeated>
+    </Field>
+    <Field
+      name="MAX CURRENT MAX BIN EXP">
+      <InformativeText>This field contains the binary exponent of the max value of max current.  
+Since the maximum allowable current of the unit could be MUCH more than the user selected maximum current or current high limit, it is necessary to include a binary exponent especially for the setting of the max current max field.
+</InformativeText>
+      <Requirement>Mandatory</Requirement>
+      <Unit>org.bluetooth.unit.unitless</Unit>
+      <Repeated>false</Repeated>
+    </Field>
+  </Value>
+</Characteristic>

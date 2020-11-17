@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Service xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:noNamespaceSchemaLocation="http://schemas.bluetooth.org/Documents/service.xsd"
+  type="com.nistcontrol.service.ms_status"
+  uuid="c7aa4ce0-08d4-471f-a8b7-94e2377e37b9"
+  name="MS_STATUS">
+  <InformativeText>
+    <Abstract />
+    <InformativeDisclaimer />
+    <Summary>This service contains a single characteristic used exclusively for advertising the general status of the MS4.</Summary>
+    <Examples>
+      <Example />
+    </Examples>
+  </InformativeText>
+  <Transports>
+    <Classic>false</Classic>
+    <LowEnergy>true</LowEnergy>
+  </Transports>
+  <Characteristics>
+    <Characteristic
+      type="com.nistcontrol.characteristic.present_status"
+      name="present_status">
+      <Requirement>Mandatory</Requirement>
+      <Properties>
+        <Read>Mandatory</Read>
+        <Write>Excluded</Write>
+        <WriteWithoutResponse>Excluded</WriteWithoutResponse>
+        <SignedWrite>Excluded</SignedWrite>
+        <ReliableWrite>Excluded</ReliableWrite>
+        <Notify>Mandatory</Notify>
+        <Indicate>Excluded</Indicate>
+        <WritableAuxiliaries>Excluded</WritableAuxiliaries>
+        <Broadcast>Excluded</Broadcast>
+        <ExtendedProperties>Excluded</ExtendedProperties>
+      </Properties>
+    </Characteristic>
+  </Characteristics>
+</Service>

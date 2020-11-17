@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Characteristic xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:noNamespaceSchemaLocation="http://schemas.bluetooth.org/Documents/characteristic.xsd"
+  type="com.nistcontrol.characteristic.present_status"
+  uuid="c7aa5b94-08d4-471f-a8b7-94e2377e37b9"
+  name="present_status">
+  <InformativeText>
+    <Abstract />
+    <InformativeDisclaimer />
+    <Summary>This characteristic contains the present status of the controller, the time it has been in that status and some additional info relating to the present status.</Summary>
+    <Examples />
+  </InformativeText>
+  <Value>
+    <Field
+      name="Status">
+      <InformativeText>This octet contains the present status of the MS4</InformativeText>
+      <Requirement>Mandatory</Requirement>
+      <Format>8bit</Format>
+      <Unit>org.bluetooth.unit.unitless</Unit>
+      <Enumerations>
+        <Enumeration
+          key="0"
+          value="ERR PHASE SEQUENCE"
+          description="The MS4 is stopped due to a supply voltage phase sequence error" />
+        <Enumeration
+          key="1"
+          value="ERR U1"
+          description="Supply voltage U1 was measured as out of bounds" />
+        <Enumeration
+          key="10"
+          value="ERR NO CURRENT"
+          description="No current was measured to the motor" />
+        <Enumeration
+          key="100"
+          value="UNKNOWN"
+          description="The status of the MS Device has not been detected yet." />
+        <Enumeration
+          key="11"
+          value="ERR CONTROLLER"
+          description="A core MS4 hardware error was detected" />
+        <Enumeration
+          key="12"
+          value="ERR MAX STARTS"
+          description="The maximum starts for the present Hour window was reached.  Motor stopped to prevent overheating" />
+        <Enumeration
+          key="13"
+          value="ERR SUPPLY FREQ"
+          description="The supply frequency was detected to be outside of operational limits (35 - 75 Hz)" />
+        <Enumeration
+          key="14"
+          value="ERR INSULATION"
+          description="An insulation error was detected in the motor leads before the motor was started." />
+        <Enumeration
+          key="15"
+          value="ERR BACK EMF"
+          description="The motor could not start properly either because the RUN, START, COM is in the wrong order OR the RUN or START capacitor is faulty." />
+        <Enumeration
+          key="16"
+          value="UNMAPPED ERR"
+          description="Motorscope is in an unmapped Error State" />
+        <Enumeration
+          key="2"
+          value="ERR U2"
+          description="Supply voltage U2 was measured as out of bounds" />
+        <Enumeration
+          key="240"
+          value="RUNNING"
+          description="Motor Running: NO ERRORS" />
+        <Enumeration
+          key="241"
+          value="UNCALIBRATED"
+          description="The first time calibration procedure was not followed yet. Parameters empty." />
+        <Enumeration
+          key="242"
+          value="CALIBRATING"
+          description="MS4 is busy with the motor calibration procedure." />
+        <Enumeration
+          key="243"
+          value="CAL PAUSED AUX"
+          description="The calibration procedure is paused until the AUX input changes to the RUN state" />
+        <Enumeration
+          key="244"
+          value="CAL PAUSED RST"
+          description="The calibration procedure is paused until the RESET input changes to the OPEN state" />
+        <Enumeration
+          key="245"
+          value="RESET ACTIVE"
+          description="The RESET input is in the ACTIVE state.  Active protection features are limited." />
+        <Enumeration
+          key="246"
+          value="CAL PAUSED MONO"
+          description="The calibration is paused until the MONO startup time is expired" />
+        <Enumeration
+          key="247"
+          value="MONO STARTUP"
+          description="Limited protection until the MONO startup time is expired" />
+        <Enumeration
+          key="255"
+          value="STARTING"
+          description="The MS4 is starting the motor." />
+        <Enumeration
+          key="3"
+          value="ERR U3"
+          description="Supply voltage U3 was measured as out of bounds" />
+        <Enumeration
+          key="4"
+          value="ERR MAX POWER"
+          description="The measured power exceeded the maximum power limit" />
+        <Enumeration
+          key="5"
+          value="ERR MAX CURRENT"
+          description="The measured current exceeded the maximum current limit" />
+        <Enumeration
+          key="6"
+          value="ERR MIN PHI"
+          description="The measured phase angle was below the lower limit" />
+        <Enumeration
+          key="7"
+          value="ERR MIN POWER"
+          description="The measured power was below the minimum power limit" />
+        <Enumeration
+          key="8"
+          value="ERR PHASE IMBALANCE"
+          description="A severe supply voltage imbalance was detected" />
+        <Enumeration
+          key="9"
+          value="ERR AUX INHIBIT"
+          description="The auxiliary inhibit input changed to the STOP state" />
+      </Enumerations>
+    </Field>
+    <Field
+      name="Time In Status">
+      <InformativeText>This timer starts at 0 and increments slower and slower as the counter value goes up.  See enumerations for detailed increment values and ranges.</InformativeText>
+      <Requirement>Mandatory</Requirement>
+      <Unit>org.bluetooth.unit.unitless</Unit>
+      <Enumerations>
+        <Enumeration
+          key="255"
+          value="More Than 2 Days" />
+        <Enumeration_Range
+          start="0"
+          end="59"
+          name="1SEC_INCR" />
+        <Enumeration_Range
+          start="60"
+          end="119"
+          name="1MIN_INCR" />
+        <Enumeration_Range
+          start="120"
+          end="239"
+          name="15MIN_INCR" />
+        <Enumeration_Range
+          start="240"
+          end="249"
+          name="1HR_INCR" />
+        <Enumeration_Range
+          start="250"
+          end="254"
+          name="2HR_INCR" />
+      </Enumerations>
+      <Format>uint8</Format>
+      <Repeated>false</Repeated>
+    </Field>
+    <Field
+      name="Additional Info">
+      <InformativeText>This field consists of 8 bytes and shall contain additional info related to the present status of the controller.</InformativeText>
+      <Requirement>Mandatory</Requirement>
+      <Format>variable</Format>
+      <Unit>org.bluetooth.unit.unitless</Unit>
+      <Repeated>false</Repeated>
+    </Field>
+  </Value>
+</Characteristic>

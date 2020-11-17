@@ -1,0 +1,244 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Characteristic xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:noNamespaceSchemaLocation="http://schemas.bluetooth.org/Documents/characteristic.xsd"
+  type="com.nistcontrol.characteristic.live_measurements"
+  uuid="c7aaa2ef-08d4-471f-a8b7-94e2377e37b9"
+  name="live_measurements">
+  <InformativeText>
+    <Abstract />
+    <InformativeDisclaimer />
+    <Summary>This Characteristic shall contain all basic parameters related to live measurements.</Summary>
+    <Examples />
+  </InformativeText>
+  <Value>
+    <Field
+      name="Measured Binary Exponents">
+      <InformativeText>This field contains the binary exponents of the Measured Power, Voltage and Current.</InformativeText>
+      <Requirement>Mandatory</Requirement>
+      <Format>uint8</Format>
+      <Unit>org.bluetooth.unit.unitless</Unit>
+      <BitField>
+        <Bit
+          index="0"
+          size="3"
+          name="Current Binary Exponent">
+          <Enumerations>
+            <Enumeration
+              key="0"
+              value="-4" />
+            <Enumeration
+              key="1"
+              value="-3" />
+            <Enumeration
+              key="2"
+              value="-2" />
+            <Enumeration
+              key="3"
+              value="-1" />
+            <Enumeration
+              key="4"
+              value="0" />
+            <Enumeration
+              key="5"
+              value="1" />
+            <Enumeration
+              key="6"
+              value="2" />
+            <Enumeration
+              key="7"
+              value="3" />
+          </Enumerations>
+        </Bit>
+        <Bit
+          index="3"
+          size="1"
+          name="Voltage Binary Exponent">
+          <Enumerations>
+            <Enumeration
+              key="0"
+              value="1" />
+            <Enumeration
+              key="1"
+              value="2" />
+          </Enumerations>
+        </Bit>
+        <Bit
+          index="4"
+          size="4"
+          name="Power Binary Exponent">
+          <Enumerations>
+            <Enumeration
+              key="0"
+              value="0" />
+            <Enumeration
+              key="1"
+              value="1" />
+            <Enumeration
+              key="2"
+              value="2" />
+            <Enumeration
+              key="3"
+              value="3" />
+            <Enumeration
+              key="4"
+              value="4" />
+            <Enumeration
+              key="5"
+              value="5" />
+            <Enumeration
+              key="6"
+              value="6" />
+            <Enumeration
+              key="7"
+              value="7" />
+            <Enumeration
+              key="8"
+              value="8" />
+            <Enumeration
+              key="9"
+              value="9" />
+            <Enumeration
+              key="10"
+              value="10" />
+            <Enumeration
+              key="11"
+              value="11" />
+            <Enumeration
+              key="12"
+              value="12" />
+            <Enumeration
+              key="13"
+              value="13" />
+            <Enumeration
+              key="14"
+              value="14" />
+            <Enumeration
+              key="15"
+              value="15" />
+          </Enumerations>
+        </Bit>
+      </BitField>
+    </Field>
+    <Field
+      name="L1 Measured Power">
+      <InformativeText>If the MS4 Hardware is capable of measuring the current in two phases, this field shall contain the Power measured in L1.</InformativeText>
+      <Requirement>Mandatory</Requirement>
+      <BinaryExponent>0</BinaryExponent>
+      <Format>uint8</Format>
+      <Maximum>255</Maximum>
+      <Minimum>0</Minimum>
+      <Unit>org.bluetooth.unit.power.watt</Unit>
+    </Field>
+    <Field
+      name="L3 Measured Power">
+      <InformativeText>The measured RMS Power of the L3 phase.</InformativeText>
+      <Requirement>Mandatory</Requirement>
+      <BinaryExponent>0</BinaryExponent>
+      <Format>uint8</Format>
+      <Maximum>255</Maximum>
+      <Minimum>0</Minimum>
+      <Unit>org.bluetooth.unit.power.watt</Unit>
+    </Field>
+    <Field
+      name="L1 Voltage">
+      <InformativeText>This field contains the measured voltage of L1</InformativeText>
+      <Requirement>Mandatory</Requirement>
+      <BinaryExponent>0</BinaryExponent>
+      <Format>uint8</Format>
+      <Maximum>255</Maximum>
+      <Minimum>0</Minimum>
+      <Unit>org.bluetooth.unit.electric_potential_difference.volt</Unit>
+    </Field>
+    <Field
+      name="L2 Voltage">
+      <InformativeText>This field contains the measured voltage of L2</InformativeText>
+      <Requirement>Mandatory</Requirement>
+      <BinaryExponent>0</BinaryExponent>
+      <Format>uint8</Format>
+      <Maximum>255</Maximum>
+      <Minimum>0</Minimum>
+      <Unit>org.bluetooth.unit.electric_potential_difference.volt</Unit>
+    </Field>
+    <Field
+      name="L3 Voltage">
+      <InformativeText>This field contains the measured voltage of L3</InformativeText>
+      <Requirement>Mandatory</Requirement>
+      <BinaryExponent>0</BinaryExponent>
+      <Format>uint8</Format>
+      <Maximum>255</Maximum>
+      <Minimum>0</Minimum>
+      <Unit>org.bluetooth.unit.electric_potential_difference.volt</Unit>
+    </Field>
+    <Field
+      name="L1 Current">
+      <InformativeText>This field contains the measured current in L1</InformativeText>
+      <Requirement>Mandatory</Requirement>
+      <BinaryExponent>0</BinaryExponent>
+      <Format>uint8</Format>
+      <Maximum>255</Maximum>
+      <Minimum>0</Minimum>
+      <Unit>org.bluetooth.unit.electric_current.ampere</Unit>
+    </Field>
+    <Field
+      name="L3 Current">
+      <InformativeText>This field contains the measured current in L3</InformativeText>
+      <Requirement>Mandatory</Requirement>
+      <BinaryExponent>0</BinaryExponent>
+      <Format>uint8</Format>
+      <Maximum>255</Maximum>
+      <Minimum>0</Minimum>
+      <Unit>org.bluetooth.unit.electric_current.ampere</Unit>
+    </Field>
+    <Field
+      name="L1 Phi">
+      <InformativeText>This field contains the measured phase shift (in 0.1 degrees) between the voltage and current of the L1 phase.</InformativeText>
+      <Requirement>Mandatory</Requirement>
+      <Format>sint16</Format>
+      <Maximum>1800</Maximum>
+      <Minimum>-1800</Minimum>
+      <Unit>org.bluetooth.unit.unitless</Unit>
+    </Field>
+    <Field
+      name="L3 Phi">
+      <InformativeText>This field contains the measured phase shift (in 0.1 degrees) between the voltage and current of the L3 phase.</InformativeText>
+      <Requirement>Mandatory</Requirement>
+      <Format>sint16</Format>
+      <Maximum>1800</Maximum>
+      <Minimum>-1800</Minimum>
+      <Unit>org.bluetooth.unit.unitless</Unit>
+    </Field>
+    <Field
+      name="Frequency">
+      <InformativeText>This field contains the measured supply frequency</InformativeText>
+      <Requirement>Mandatory</Requirement>
+      <Format>uint8</Format>
+      <Maximum>80</Maximum>
+      <Minimum>0</Minimum>
+      <Unit>org.bluetooth.unit.frequency.hertz</Unit>
+    </Field>
+    <Field
+      name="AUX INPUT STATUS">
+      <InformativeText>This field contains the most recent status of the AUX input</InformativeText>
+      <Requirement>Mandatory</Requirement>
+      <Format>uint8</Format>
+      <Unit>org.bluetooth.unit.unitless</Unit>
+      <BitField />
+      <AdditionalValues />
+      <Enumerations>
+        <Enumeration
+          key="0"
+          value="OPENED"
+          description="The AUX-COM bridge is OPENED" />
+        <Enumeration
+          key="1"
+          value="CLOSED"
+          description="The AUX-COM bridge is CLOSED" />
+        <Enumeration
+          key="255"
+          value="UNKNOWN"
+          description="The AUX-COM bridge status has not been updated yet" />
+      </Enumerations>
+      <Repeated>false</Repeated>
+    </Field>
+  </Value>
+</Characteristic>

@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Characteristic xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:noNamespaceSchemaLocation="http://schemas.bluetooth.org/Documents/characteristic.xsd"
+  type="com.nistcontrol.characteristic.rtc"
+  uuid="c7aa9be4-08d4-471f-a8b7-94e2377e37b9"
+  name="rtc">
+  <InformativeText>
+    <Abstract />
+    <Summary>This characteristic contains Real-Time-Clock and Calendar related fields</Summary>
+    <Examples />
+  </InformativeText>
+  <Value>
+    <Field
+      name="YYYYMMDDHHmm">
+      <InformativeText>This Bit-field contains the Gregorian Year, Month, Day, Hour and Minute.</InformativeText>
+      <Requirement>Mandatory</Requirement>
+      <Format>uint32</Format>
+      <Unit>org.bluetooth.unit.unitless</Unit>
+      <BitField>
+        <Bit
+          index="0"
+          size="6"
+          name="Minutes">
+          <Enumerations>
+            <Enumeration_Range
+              start="0"
+              end="59"
+              name="Minutes" />
+            <Enumeration_Range
+              start="60"
+              end="63"
+              name="INVALID" />
+          </Enumerations>
+        </Bit>
+        <Bit
+          index="6"
+          size="5"
+          name="Hours">
+          <Enumerations>
+            <Enumeration_Range
+              start="0"
+              end="23"
+              name="Hours" />
+            <Enumeration_Range
+              start="24"
+              end="31"
+              name="INVALID" />
+          </Enumerations>
+        </Bit>
+        <Bit
+          index="11"
+          size="5"
+          name="Day">
+          <Enumerations>
+            <Enumeration
+              key="0"
+              value="INVALID" />
+            <Enumeration_Range
+              start="1"
+              end="31"
+              name="Day" />
+          </Enumerations>
+        </Bit>
+        <Bit
+          index="16"
+          size="4"
+          name="Month">
+          <Enumerations>
+            <Enumeration
+              key="0"
+              value="INVALID" />
+            <Enumeration_Range
+              start="1"
+              end="12"
+              name="Month" />
+            <Enumeration_Range
+              start="13"
+              end="15"
+              name="INVALID" />
+          </Enumerations>
+        </Bit>
+        <Bit
+          index="20"
+          size="12"
+          name="Year">
+          <Enumerations>
+            <Enumeration_Range
+              start="0"
+              end="4095"
+              name="Year" />
+          </Enumerations>
+        </Bit>
+      </BitField>
+    </Field>
+    <Field
+      name="ADDITIONAL INFO">
+      <InformativeText>This field contains a bit-field with the Day of Week and the seconds since the start of the minute</InformativeText>
+      <Requirement>Mandatory</Requirement>
+      <Unit>org.bluetooth.unit.unitless</Unit>
+      <BitField>
+        <Bit
+          index="0"
+          size="3"
+          name="Day Of Week">
+          <Enumerations>
+            <Enumeration
+              key="0"
+              value="INVALID" />
+            <Enumeration
+              key="1"
+              value="Sunday" />
+            <Enumeration
+              key="2"
+              value="Monday" />
+            <Enumeration
+              key="3"
+              value="Tuesday" />
+            <Enumeration
+              key="4"
+              value="Wednesday" />
+            <Enumeration
+              key="5"
+              value="Thursday" />
+            <Enumeration
+              key="6"
+              value="Friday" />
+            <Enumeration
+              key="7"
+              value="Saturday" />
+          </Enumerations>
+        </Bit>
+        <Bit
+          index="3"
+          size="6"
+          name="Seconds since start of minute">
+          <Enumerations>
+            <Enumeration_Range
+              start="0"
+              end="59"
+              name="Seconds" />
+            <Enumeration_Range
+              start="60"
+              end="63"
+              name="INVALID" />
+          </Enumerations>
+        </Bit>
+        <ReservedForFutureUse
+          index="9"
+          size="7" />
+      </BitField>
+      <Format>uint16</Format>
+    </Field>
+  </Value>
+</Characteristic>

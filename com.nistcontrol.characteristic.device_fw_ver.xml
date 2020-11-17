@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Characteristic xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:noNamespaceSchemaLocation="http://schemas.bluetooth.org/Documents/characteristic.xsd"
+  type="com.nistcontrol.characteristic.device_fw_ver"
+  uuid="c7aaacb2-08d4-471f-a8b7-94e2377e37b9"
+  name="device_fw_ver">
+  <InformativeText>
+    <Abstract />
+    <InformativeDisclaimer />
+    <Summary>This characteristic contains the device firmware version</Summary>
+    <Examples />
+  </InformativeText>
+  <Value>
+    <Field
+      name="BUG FIX">
+      <Requirement>Mandatory</Requirement>
+      <Format>uint8</Format>
+      <Unit>org.bluetooth.unit.unitless</Unit>
+      <BitField>
+        <Bit
+          index="0"
+          size="7"
+          name="BUG FIX">
+          <Enumerations>
+            <Enumeration_Range
+              start="0"
+              end="127"
+              name="BUG FIX" />
+          </Enumerations>
+        </Bit>
+        <Bit
+          index="7"
+          size="1"
+          name="FW TYPE">
+          <Enumerations>
+            <Enumeration
+              key="0"
+              value="DEBUG" />
+            <Enumeration
+              key="1"
+              value="RELEASE" />
+          </Enumerations>
+        </Bit>
+      </BitField>
+    </Field>
+    <Field
+      name="MAJOR VERSION">
+      <Requirement>Mandatory</Requirement>
+      <Format>uint8</Format>
+      <Maximum>10</Maximum>
+      <Minimum>4</Minimum>
+      <Unit>org.bluetooth.unit.unitless</Unit>
+    </Field>
+    <Field
+      name="MINOR VERSION">
+      <Requirement>Mandatory</Requirement>
+      <Format>uint8</Format>
+      <Maximum>255</Maximum>
+      <Minimum>0</Minimum>
+      <Unit>org.bluetooth.unit.unitless</Unit>
+    </Field>
+  </Value>
+</Characteristic>

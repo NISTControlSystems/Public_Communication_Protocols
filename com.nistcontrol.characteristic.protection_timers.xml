@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Characteristic xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:noNamespaceSchemaLocation="http://schemas.bluetooth.org/Documents/characteristic.xsd"
+  type="com.nistcontrol.characteristic.protection_timers"
+  uuid="c7aae2b8-08d4-471f-a8b7-94e2377e37b9"
+  name="protection_timers">
+  <InformativeText>
+    <Abstract />
+    <Summary>This characteristic contains a number of control related timers</Summary>
+    <Examples />
+  </InformativeText>
+  <Value>
+    <Field
+      name="Power_On_Delay">
+      <InformativeText>This timer determines how long after power up, the MS4 will wait before commencing control.</InformativeText>
+      <Requirement>Mandatory</Requirement>
+      <Format>uint8</Format>
+      <Maximum>180</Maximum>
+      <Minimum>1</Minimum>
+      <Unit>org.bluetooth.unit.time.second</Unit>
+    </Field>
+    <Field
+      name="T_START">
+      <InformativeText>This timer sets the number of seconds after the motor is started during which NO error condtion shall be monitored.</InformativeText>
+      <Requirement>Mandatory</Requirement>
+      <Format>uint8</Format>
+      <Maximum>10</Maximum>
+      <Minimum>0</Minimum>
+      <Unit>org.bluetooth.unit.time.second</Unit>
+    </Field>
+    <Field
+      name="OVERLOAD_ALLOW">
+      <InformativeText>This timer sets the continuous number of seconds for which an overload error condition should be present before the MS4 shall stop the motor in an OVERLOAD error.</InformativeText>
+      <Requirement>Mandatory</Requirement>
+      <Format>uint8</Format>
+      <Maximum>10</Maximum>
+      <Minimum>1</Minimum>
+      <Unit>org.bluetooth.unit.time.second</Unit>
+    </Field>
+    <Field
+      name="UNDERLOAD_ALLOW">
+      <InformativeText>This timer sets the continuous number of seconds for which an underload error condition should be present before the MS4 shall stop the motor in an UNDERLOAD error.</InformativeText>
+      <Requirement>Mandatory</Requirement>
+      <Format>uint8</Format>
+      <Maximum>10</Maximum>
+      <Minimum>1</Minimum>
+      <Unit>org.bluetooth.unit.time.second</Unit>
+    </Field>
+    <Field
+      name="STARTUP_UNDERLOAD_ALLOW">
+      <InformativeText>This timer sets the continuous number of seconds for which an overload error condition should be present at motor START before the MS4 shall stop the motor in an UNDERLOAD error.</InformativeText>
+      <Requirement>Mandatory</Requirement>
+      <Format>uint16</Format>
+      <Maximum>10800</Maximum>
+      <Minimum>1</Minimum>
+      <Unit>org.bluetooth.unit.time.second</Unit>
+    </Field>
+    <Field
+      name="UNDERLOAD_RESTART_DELAY">
+      <InformativeText>This timer sets the number of minutes for which the MS4 shall wait before auto-restarting the motor after it stopped the motor due to an UNDERLOAD error.</InformativeText>
+      <Requirement>Mandatory</Requirement>
+      <Format>uint16</Format>
+      <Maximum>1440</Maximum>
+      <Minimum>0</Minimum>
+      <Unit>org.bluetooth.unit.time.minute</Unit>
+      <AdditionalValues>
+        <Enumeration
+          key="0"
+          value="Disabled"
+          description="When DISABLED, the motor shall not attempt an auto-restart after an underload error." />
+      </AdditionalValues>
+    </Field>
+    <Field
+      name="VOLTAGE_STABILIZATION_DELAY">
+      <InformativeText>This timer sets the continuous number of minutes for which the measured supply voltages must be inside the set limits, before the motor shall be auto-restarted.</InformativeText>
+      <Requirement>Mandatory</Requirement>
+      <Format>uint8</Format>
+      <Maximum>30</Maximum>
+      <Minimum>5</Minimum>
+      <Unit>org.bluetooth.unit.time.minute</Unit>
+    </Field>
+    <Field
+      name="PRE_MOTOR_START_ALARM">
+      <InformativeText>This timer sets the number of seconds for which the alarm relay shall be active before the motor relay is activated.</InformativeText>
+      <Requirement>Mandatory</Requirement>
+      <Format>uint16</Format>
+      <Maximum>600</Maximum>
+      <Minimum>0</Minimum>
+      <Unit>org.bluetooth.unit.time.second</Unit>
+      <AdditionalValues>
+        <Enumeration
+          key="0"
+          value="Disabled"
+          description="When DISABLED, the MS4 shall start the motor immediately with no alarm active delay period." />
+      </AdditionalValues>
+    </Field>
+  </Value>
+</Characteristic>
