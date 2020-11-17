@@ -1,0 +1,893 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Characteristic xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:noNamespaceSchemaLocation="http://schemas.bluetooth.org/Documents/characteristic.xsd"
+  type="com.nistcontrol.characteristic.d_out4_cfg"
+  uuid="c7aaadc8-08d4-471f-a8b7-94e2377e37b9"
+  name="D_OUT4_CFG">
+  <Value>
+    <Field
+      name="GENERAL_CFG">
+      <InformativeText>This byte shall determine which fields of this chracteristic shall be populated.</InformativeText>
+      <Requirement>Mandatory</Requirement>
+      <Format>uint8</Format>
+      <Unit>org.bluetooth.unit.unitless</Unit>
+      <Enumerations>
+        <Enumeration
+          key="0"
+          value="UNCONFIGURED"
+          description="When UNCONFIGURED, the output shall be locked in the OFF condition." />
+        <Enumeration
+          key="1"
+          value="NETWORK_CONTROLLED"
+          requires="C1"
+          description="This output will be controlled by a boolean logic function of which the input(s) could be configured to be from any NODE_ID in the network." />
+        <Enumeration
+          key="2"
+          value="BLUETOOTH_CONTROLLED"
+          requires="C2"
+          description="This output shall be controlled via Bluetooth " />
+        <ReservedForFutureUse
+          start="3"
+          end="255"
+          name="RFU" />
+      </Enumerations>
+      <Repeated>false</Repeated>
+    </Field>
+    <Field
+      name="DIGITAL_INPUT_A">
+      <InformativeText>This bit-field sets the NODE_ID, DIGITAL_INPUT_NUMBER as well as digital input value inversion of this configured input in the logic algorithm which controls the status of Digital Output 4 (Relay 4).
+NODE_ID = 0 shall be reserved for when this parameter is UNCONFIGURED, in which case the Relay Output shall always be OFF.</InformativeText>
+      <Requirement>C1</Requirement>
+      <Format>uint8</Format>
+      <Unit>org.bluetooth.unit.unitless</Unit>
+      <BitField>
+        <Bit
+          index="0"
+          size="4"
+          name="NODE_ID">
+          <Enumerations>
+            <Enumeration_Range
+              start="1"
+              end="15"
+              name="NODE_ID" />
+            <Reserved
+              start="0"
+              end="0"
+              name="UNCONFIGURED" />
+          </Enumerations>
+        </Bit>
+        <Bit
+          index="4"
+          size="3"
+          name="DIGITAL_INPUT_NUMBER">
+          <Enumerations>
+            <Enumeration_Range
+              start="0"
+              end="7"
+              name="DIGITAL_INPUT_NUMBER" />
+          </Enumerations>
+        </Bit>
+        <Bit
+          index="7"
+          size="1"
+          name="INVERT_VALUE">
+          <Enumerations>
+            <Enumeration
+              key="0"
+              value="DONT_INVERT_INPUT_VALUE"
+              description="Don't invert the value of the input" />
+            <Enumeration
+              key="1"
+              value="INVERT_INPUT_VALUE"
+              description="Invert the value of the input" />
+          </Enumerations>
+        </Bit>
+      </BitField>
+      <Repeated>false</Repeated>
+    </Field>
+    <Field
+      name="LOGIC_OPERAND_1">
+      <InformativeText>If this byte is present AND the NODE_ID field in the previous DIGITAL_INPUT_n is configured (not 0), this byte shall contain the logic operand to be used between the previous DIGITAL_INPUT_x and the next DIGITIAL_INPUT_y.</InformativeText>
+      <Requirement>Optional</Requirement>
+      <Format>uint8</Format>
+      <Unit>org.bluetooth.unit.unitless</Unit>
+      <Enumerations>
+        <Enumeration
+          key="0"
+          value="OPERAND_IS_UNCONFIGURED"
+          description="Reserved for UNCONFIGURED" />
+        <Enumeration
+          key="1"
+          value="OPERAND_IS_AND"
+          description="Bitwise AND " />
+        <Enumeration
+          key="2"
+          value="OPERAND_IS_NAND"
+          description="Bitwise NAND" />
+        <Enumeration
+          key="3"
+          value="OPERAND_IS_OR"
+          description="Bitwise OR" />
+        <Enumeration
+          key="4"
+          value="OPERAND_IS_NOR"
+          description="Bitwise NOR" />
+        <Enumeration
+          key="5"
+          value="OPERAND_IS_XOR"
+          description="Bitwise XOR" />
+        <Enumeration
+          key="6"
+          value="OPERAND_IS_XNOR"
+          description="Bitwise XNOR" />
+        <ReservedForFutureUse
+          start="7"
+          end="255"
+          name="RFU" />
+      </Enumerations>
+      <Repeated>false</Repeated>
+    </Field>
+    <Field
+      name="DIGITAL_INPUT_B">
+      <InformativeText>This field shall be present on the condition that the previous LOGIC_OPERAND_n field is present and does NOT have the UNCONFIGURED value (0)
+This bit-field sets the NODE_ID, DIGITAL_INPUT_NUMBER as well as digital input value inversion of this configured input in the logic algorithm which controls the status of Digital Output 4 (Relay 4).
+NODE_ID = 0 shall be reserved for when this parameter is UNCONFIGURED, in which case this input's value shall always be interpreted as 0 (inactive).</InformativeText>
+      <Requirement>Conditional</Requirement>
+      <Format>uint8</Format>
+      <Unit>org.bluetooth.unit.unitless</Unit>
+      <BitField>
+        <Bit
+          index="0"
+          size="4"
+          name="NODE_ID">
+          <Enumerations>
+            <Enumeration_Range
+              start="1"
+              end="15"
+              name="NODE_ID" />
+            <Reserved
+              start="0"
+              end="0"
+              name="UNCONFIGURED" />
+          </Enumerations>
+        </Bit>
+        <Bit
+          index="4"
+          size="3"
+          name="DIGITAL_INPUT_NUMBER">
+          <Enumerations>
+            <Enumeration_Range
+              start="0"
+              end="7"
+              name="DIGITAL_INPUT_NUMBER" />
+          </Enumerations>
+        </Bit>
+        <Bit
+          index="7"
+          size="1"
+          name="INVERT_VALUE">
+          <Enumerations>
+            <Enumeration
+              key="0"
+              value="DONT_INVERT_INPUT_VALUE"
+              description="Don't invert the value of the input" />
+            <Enumeration
+              key="1"
+              value="INVERT_INPUT_VALUE"
+              description="Invert the value of the input" />
+          </Enumerations>
+        </Bit>
+      </BitField>
+      <Repeated>false</Repeated>
+    </Field>
+    <Field
+      name="LOGIC_OPERAND_2">
+      <InformativeText>If this byte is present AND the NODE_ID field in the previous DIGITAL_INPUT_n is configured (not 0), this byte shall contain the logic operand to be used between the previous DIGITAL_INPUT_x and the next DIGITIAL_INPUT_y.</InformativeText>
+      <Requirement>Optional</Requirement>
+      <Format>uint8</Format>
+      <Unit>org.bluetooth.unit.unitless</Unit>
+      <Enumerations>
+        <Enumeration
+          key="0"
+          value="OPERAND_IS_UNCONFIGURED"
+          description="Reserved for UNCONFIGURED" />
+        <Enumeration
+          key="1"
+          value="OPERAND_IS_AND"
+          description="Bitwise AND " />
+        <Enumeration
+          key="2"
+          value="OPERAND_IS_NAND"
+          description="Bitwise NAND" />
+        <Enumeration
+          key="3"
+          value="OPERAND_IS_OR"
+          description="Bitwise OR" />
+        <Enumeration
+          key="4"
+          value="OPERAND_IS_NOR"
+          description="Bitwise NOR" />
+        <Enumeration
+          key="5"
+          value="OPERAND_IS_XOR"
+          description="Bitwise XOR" />
+        <Enumeration
+          key="6"
+          value="OPERAND_IS_XNOR"
+          description="Bitwise XNOR" />
+        <ReservedForFutureUse
+          start="7"
+          end="255"
+          name="RFU" />
+      </Enumerations>
+      <Repeated>false</Repeated>
+    </Field>
+    <Field
+      name="DIGITAL_INPUT_C">
+      <InformativeText>This field shall be present on the condition that the previous LOGIC_OPERAND_n field is present and does NOT have the UNCONFIGURED value (0)
+This bit-field sets the NODE_ID, DIGITAL_INPUT_NUMBER as well as digital input value inversion of this configured input in the logic algorithm which controls the status of Digital Output 4 (Relay 4).
+NODE_ID = 0 shall be reserved for when this parameter is UNCONFIGURED, in which case this input's value shall always be interpreted as 0 (inactive).</InformativeText>
+      <Requirement>Conditional</Requirement>
+      <Format>uint8</Format>
+      <Unit>org.bluetooth.unit.unitless</Unit>
+      <BitField>
+        <Bit
+          index="0"
+          size="4"
+          name="NODE_ID">
+          <Enumerations>
+            <Enumeration_Range
+              start="1"
+              end="15"
+              name="NODE_ID" />
+            <Reserved
+              start="0"
+              end="0"
+              name="UNCONFIGURED" />
+          </Enumerations>
+        </Bit>
+        <Bit
+          index="4"
+          size="3"
+          name="DIGITAL_INPUT_NUMBER">
+          <Enumerations>
+            <Enumeration_Range
+              start="0"
+              end="7"
+              name="DIGITAL_INPUT_NUMBER" />
+          </Enumerations>
+        </Bit>
+        <Bit
+          index="7"
+          size="1"
+          name="INVERT_VALUE">
+          <Enumerations>
+            <Enumeration
+              key="0"
+              value="DONT_INVERT_INPUT_VALUE"
+              description="Don't invert the value of the input" />
+            <Enumeration
+              key="1"
+              value="INVERT_INPUT_VALUE"
+              description="Invert the value of the input" />
+          </Enumerations>
+        </Bit>
+      </BitField>
+      <Repeated>false</Repeated>
+    </Field>
+    <Field
+      name="LOGIC_OPERAND_3">
+      <InformativeText>If this byte is present AND the NODE_ID field in the previous DIGITAL_INPUT_n is configured (not 0), this byte shall contain the logic operand to be used between the previous DIGITAL_INPUT_x and the next DIGITIAL_INPUT_y.</InformativeText>
+      <Requirement>Optional</Requirement>
+      <Format>uint8</Format>
+      <Unit>org.bluetooth.unit.unitless</Unit>
+      <Enumerations>
+        <Enumeration
+          key="0"
+          value="OPERAND_IS_UNCONFIGURED"
+          description="Reserved for UNCONFIGURED" />
+        <Enumeration
+          key="1"
+          value="OPERAND_IS_AND"
+          description="Bitwise AND " />
+        <Enumeration
+          key="2"
+          value="OPERAND_IS_NAND"
+          description="Bitwise NAND" />
+        <Enumeration
+          key="3"
+          value="OPERAND_IS_OR"
+          description="Bitwise OR" />
+        <Enumeration
+          key="4"
+          value="OPERAND_IS_NOR"
+          description="Bitwise NOR" />
+        <Enumeration
+          key="5"
+          value="OPERAND_IS_XOR"
+          description="Bitwise XOR" />
+        <Enumeration
+          key="6"
+          value="OPERAND_IS_XNOR"
+          description="Bitwise XNOR" />
+        <ReservedForFutureUse
+          start="7"
+          end="255"
+          name="RFU" />
+      </Enumerations>
+      <Repeated>false</Repeated>
+    </Field>
+    <Field
+      name="DIGITAL_INPUT_D">
+      <InformativeText>This field shall be present on the condition that the previous LOGIC_OPERAND_n field is present and does NOT have the UNCONFIGURED value (0)
+This bit-field sets the NODE_ID, DIGITAL_INPUT_NUMBER as well as digital input value inversion of this configured input in the logic algorithm which controls the status of Digital Output 4 (Relay 4).
+NODE_ID = 0 shall be reserved for when this parameter is UNCONFIGURED, in which case this input's value shall always be interpreted as 0 (inactive).</InformativeText>
+      <Requirement>Conditional</Requirement>
+      <Format>uint8</Format>
+      <Unit>org.bluetooth.unit.unitless</Unit>
+      <BitField>
+        <Bit
+          index="0"
+          size="4"
+          name="NODE_ID">
+          <Enumerations>
+            <Enumeration_Range
+              start="1"
+              end="15"
+              name="NODE_ID" />
+            <Reserved
+              start="0"
+              end="0"
+              name="UNCONFIGURED" />
+          </Enumerations>
+        </Bit>
+        <Bit
+          index="4"
+          size="3"
+          name="DIGITAL_INPUT_NUMBER">
+          <Enumerations>
+            <Enumeration_Range
+              start="0"
+              end="7"
+              name="DIGITAL_INPUT_NUMBER" />
+          </Enumerations>
+        </Bit>
+        <Bit
+          index="7"
+          size="1"
+          name="INVERT_VALUE">
+          <Enumerations>
+            <Enumeration
+              key="0"
+              value="DONT_INVERT_INPUT_VALUE"
+              description="Don't invert the value of the input" />
+            <Enumeration
+              key="1"
+              value="INVERT_INPUT_VALUE"
+              description="Invert the value of the input" />
+          </Enumerations>
+        </Bit>
+      </BitField>
+      <Repeated>false</Repeated>
+    </Field>
+    <Field
+      name="LOGIC_OPERAND_4">
+      <InformativeText>If this byte is present AND the NODE_ID field in the previous DIGITAL_INPUT_n is configured (not 0), this byte shall contain the logic operand to be used between the previous DIGITAL_INPUT_x and the next DIGITIAL_INPUT_y.</InformativeText>
+      <Requirement>Optional</Requirement>
+      <Format>uint8</Format>
+      <Unit>org.bluetooth.unit.unitless</Unit>
+      <Enumerations>
+        <Enumeration
+          key="0"
+          value="OPERAND_IS_UNCONFIGURED"
+          description="Reserved for UNCONFIGURED" />
+        <Enumeration
+          key="1"
+          value="OPERAND_IS_AND"
+          description="Bitwise AND " />
+        <Enumeration
+          key="2"
+          value="OPERAND_IS_NAND"
+          description="Bitwise NAND" />
+        <Enumeration
+          key="3"
+          value="OPERAND_IS_OR"
+          description="Bitwise OR" />
+        <Enumeration
+          key="4"
+          value="OPERAND_IS_NOR"
+          description="Bitwise NOR" />
+        <Enumeration
+          key="5"
+          value="OPERAND_IS_XOR"
+          description="Bitwise XOR" />
+        <Enumeration
+          key="6"
+          value="OPERAND_IS_XNOR"
+          description="Bitwise XNOR" />
+        <ReservedForFutureUse
+          start="7"
+          end="255"
+          name="RFU" />
+      </Enumerations>
+      <Repeated>false</Repeated>
+    </Field>
+    <Field
+      name="DIGITAL_INPUT_E">
+      <InformativeText>This field shall be present on the condition that the previous LOGIC_OPERAND_n field is present and does NOT have the UNCONFIGURED value (0)
+This bit-field sets the NODE_ID, DIGITAL_INPUT_NUMBER as well as digital input value inversion of this configured input in the logic algorithm which controls the status of Digital Output 4 (Relay 4).
+NODE_ID = 0 shall be reserved for when this parameter is UNCONFIGURED, in which case this input's value shall always be interpreted as 0 (inactive).</InformativeText>
+      <Requirement>Conditional</Requirement>
+      <Format>uint8</Format>
+      <Unit>org.bluetooth.unit.unitless</Unit>
+      <BitField>
+        <Bit
+          index="0"
+          size="4"
+          name="NODE_ID">
+          <Enumerations>
+            <Enumeration_Range
+              start="1"
+              end="15"
+              name="NODE_ID" />
+            <Reserved
+              start="0"
+              end="0"
+              name="UNCONFIGURED" />
+          </Enumerations>
+        </Bit>
+        <Bit
+          index="4"
+          size="3"
+          name="DIGITAL_INPUT_NUMBER">
+          <Enumerations>
+            <Enumeration_Range
+              start="0"
+              end="7"
+              name="DIGITAL_INPUT_NUMBER" />
+          </Enumerations>
+        </Bit>
+        <Bit
+          index="7"
+          size="1"
+          name="INVERT_VALUE">
+          <Enumerations>
+            <Enumeration
+              key="0"
+              value="DONT_INVERT_INPUT_VALUE"
+              description="Don't invert the value of the input" />
+            <Enumeration
+              key="1"
+              value="INVERT_INPUT_VALUE"
+              description="Invert the value of the input" />
+          </Enumerations>
+        </Bit>
+      </BitField>
+      <Repeated>false</Repeated>
+    </Field>
+    <Field
+      name="LOGIC_OPERAND_5">
+      <InformativeText>If this byte is present AND the NODE_ID field in the previous DIGITAL_INPUT_n is configured (not 0), this byte shall contain the logic operand to be used between the previous DIGITAL_INPUT_x and the next DIGITIAL_INPUT_y.</InformativeText>
+      <Requirement>Optional</Requirement>
+      <Format>uint8</Format>
+      <Unit>org.bluetooth.unit.unitless</Unit>
+      <Enumerations>
+        <Enumeration
+          key="0"
+          value="OPERAND_IS_UNCONFIGURED"
+          description="Reserved for UNCONFIGURED" />
+        <Enumeration
+          key="1"
+          value="OPERAND_IS_AND"
+          description="Bitwise AND " />
+        <Enumeration
+          key="2"
+          value="OPERAND_IS_NAND"
+          description="Bitwise NAND" />
+        <Enumeration
+          key="3"
+          value="OPERAND_IS_OR"
+          description="Bitwise OR" />
+        <Enumeration
+          key="4"
+          value="OPERAND_IS_NOR"
+          description="Bitwise NOR" />
+        <Enumeration
+          key="5"
+          value="OPERAND_IS_XOR"
+          description="Bitwise XOR" />
+        <Enumeration
+          key="6"
+          value="OPERAND_IS_XNOR"
+          description="Bitwise XNOR" />
+        <ReservedForFutureUse
+          start="7"
+          end="255"
+          name="RFU" />
+      </Enumerations>
+      <Repeated>false</Repeated>
+    </Field>
+    <Field
+      name="DIGITAL_INPUT_F">
+      <InformativeText>This field shall be present on the condition that the previous LOGIC_OPERAND_n field is present and does NOT have the UNCONFIGURED value (0)
+This bit-field sets the NODE_ID, DIGITAL_INPUT_NUMBER as well as digital input value inversion of this configured input in the logic algorithm which controls the status of Digital Output 4 (Relay 4).
+NODE_ID = 0 shall be reserved for when this parameter is UNCONFIGURED, in which case this input's value shall always be interpreted as 0 (inactive).</InformativeText>
+      <Requirement>Conditional</Requirement>
+      <Format>uint8</Format>
+      <Unit>org.bluetooth.unit.unitless</Unit>
+      <BitField>
+        <Bit
+          index="0"
+          size="4"
+          name="NODE_ID">
+          <Enumerations>
+            <Enumeration_Range
+              start="1"
+              end="15"
+              name="NODE_ID" />
+            <Reserved
+              start="0"
+              end="0"
+              name="UNCONFIGURED" />
+          </Enumerations>
+        </Bit>
+        <Bit
+          index="4"
+          size="3"
+          name="DIGITAL_INPUT_NUMBER">
+          <Enumerations>
+            <Enumeration_Range
+              start="0"
+              end="7"
+              name="DIGITAL_INPUT_NUMBER" />
+          </Enumerations>
+        </Bit>
+        <Bit
+          index="7"
+          size="1"
+          name="INVERT_VALUE">
+          <Enumerations>
+            <Enumeration
+              key="0"
+              value="DONT_INVERT_INPUT_VALUE"
+              description="Don't invert the value of the input" />
+            <Enumeration
+              key="1"
+              value="INVERT_INPUT_VALUE"
+              description="Invert the value of the input" />
+          </Enumerations>
+        </Bit>
+      </BitField>
+      <Repeated>false</Repeated>
+    </Field>
+    <Field
+      name="LOGIC_OPERAND_6">
+      <InformativeText>If this byte is present AND the NODE_ID field in the previous DIGITAL_INPUT_n is configured (not 0), this byte shall contain the logic operand to be used between the previous DIGITAL_INPUT_x and the next DIGITIAL_INPUT_y.</InformativeText>
+      <Requirement>Optional</Requirement>
+      <Format>uint8</Format>
+      <Unit>org.bluetooth.unit.unitless</Unit>
+      <Enumerations>
+        <Enumeration
+          key="0"
+          value="OPERAND_IS_UNCONFIGURED"
+          description="Reserved for UNCONFIGURED" />
+        <Enumeration
+          key="1"
+          value="OPERAND_IS_AND"
+          description="Bitwise AND " />
+        <Enumeration
+          key="2"
+          value="OPERAND_IS_NAND"
+          description="Bitwise NAND" />
+        <Enumeration
+          key="3"
+          value="OPERAND_IS_OR"
+          description="Bitwise OR" />
+        <Enumeration
+          key="4"
+          value="OPERAND_IS_NOR"
+          description="Bitwise NOR" />
+        <Enumeration
+          key="5"
+          value="OPERAND_IS_XOR"
+          description="Bitwise XOR" />
+        <Enumeration
+          key="6"
+          value="OPERAND_IS_XNOR"
+          description="Bitwise XNOR" />
+        <ReservedForFutureUse
+          start="7"
+          end="255"
+          name="RFU" />
+      </Enumerations>
+      <Repeated>false</Repeated>
+    </Field>
+    <Field
+      name="DIGITAL_INPUT_G">
+      <InformativeText>This field shall be present on the condition that the previous LOGIC_OPERAND_n field is present and does NOT have the UNCONFIGURED value (0)
+This bit-field sets the NODE_ID, DIGITAL_INPUT_NUMBER as well as digital input value inversion of this configured input in the logic algorithm which controls the status of Digital Output 4 (Relay 4).
+NODE_ID = 0 shall be reserved for when this parameter is UNCONFIGURED, in which case this input's value shall always be interpreted as 0 (inactive).</InformativeText>
+      <Requirement>Conditional</Requirement>
+      <Format>uint8</Format>
+      <Unit>org.bluetooth.unit.unitless</Unit>
+      <BitField>
+        <Bit
+          index="0"
+          size="4"
+          name="NODE_ID">
+          <Enumerations>
+            <Enumeration_Range
+              start="1"
+              end="15"
+              name="NODE_ID" />
+            <Reserved
+              start="0"
+              end="0"
+              name="UNCONFIGURED" />
+          </Enumerations>
+        </Bit>
+        <Bit
+          index="4"
+          size="3"
+          name="DIGITAL_INPUT_NUMBER">
+          <Enumerations>
+            <Enumeration_Range
+              start="0"
+              end="7"
+              name="DIGITAL_INPUT_NUMBER" />
+          </Enumerations>
+        </Bit>
+        <Bit
+          index="7"
+          size="1"
+          name="INVERT_VALUE">
+          <Enumerations>
+            <Enumeration
+              key="0"
+              value="DONT_INVERT_INPUT_VALUE"
+              description="Don't invert the value of the input" />
+            <Enumeration
+              key="1"
+              value="INVERT_INPUT_VALUE"
+              description="Invert the value of the input" />
+          </Enumerations>
+        </Bit>
+      </BitField>
+      <Repeated>false</Repeated>
+    </Field>
+    <Field
+      name="LOGIC_OPERAND_7">
+      <InformativeText>If this byte is present AND the NODE_ID field in the previous DIGITAL_INPUT_n is configured (not 0), this byte shall contain the logic operand to be used between the previous DIGITAL_INPUT_x and the next DIGITIAL_INPUT_y.</InformativeText>
+      <Requirement>Optional</Requirement>
+      <Format>uint8</Format>
+      <Unit>org.bluetooth.unit.unitless</Unit>
+      <Enumerations>
+        <Enumeration
+          key="0"
+          value="OPERAND_IS_UNCONFIGURED"
+          description="Reserved for UNCONFIGURED" />
+        <Enumeration
+          key="1"
+          value="OPERAND_IS_AND"
+          description="Bitwise AND " />
+        <Enumeration
+          key="2"
+          value="OPERAND_IS_NAND"
+          description="Bitwise NAND" />
+        <Enumeration
+          key="3"
+          value="OPERAND_IS_OR"
+          description="Bitwise OR" />
+        <Enumeration
+          key="4"
+          value="OPERAND_IS_NOR"
+          description="Bitwise NOR" />
+        <Enumeration
+          key="5"
+          value="OPERAND_IS_XOR"
+          description="Bitwise XOR" />
+        <Enumeration
+          key="6"
+          value="OPERAND_IS_XNOR"
+          description="Bitwise XNOR" />
+        <ReservedForFutureUse
+          start="7"
+          end="255"
+          name="RFU" />
+      </Enumerations>
+      <Repeated>false</Repeated>
+    </Field>
+    <Field
+      name="DIGITAL_INPUT_H">
+      <InformativeText>This field shall be present on the condition that the previous LOGIC_OPERAND_n field is present and does NOT have the UNCONFIGURED value (0)
+This bit-field sets the NODE_ID, DIGITAL_INPUT_NUMBER as well as digital input value inversion of this configured input in the logic algorithm which controls the status of Digital Output 4 (Relay 4).
+NODE_ID = 0 shall be reserved for when this parameter is UNCONFIGURED, in which case this input's value shall always be interpreted as 0 (inactive).</InformativeText>
+      <Requirement>Conditional</Requirement>
+      <Format>uint8</Format>
+      <Unit>org.bluetooth.unit.unitless</Unit>
+      <BitField>
+        <Bit
+          index="0"
+          size="4"
+          name="NODE_ID">
+          <Enumerations>
+            <Enumeration_Range
+              start="1"
+              end="15"
+              name="NODE_ID" />
+            <Reserved
+              start="0"
+              end="0"
+              name="UNCONFIGURED" />
+          </Enumerations>
+        </Bit>
+        <Bit
+          index="4"
+          size="3"
+          name="DIGITAL_INPUT_NUMBER">
+          <Enumerations>
+            <Enumeration_Range
+              start="0"
+              end="7"
+              name="DIGITAL_INPUT_NUMBER" />
+          </Enumerations>
+        </Bit>
+        <Bit
+          index="7"
+          size="1"
+          name="INVERT_VALUE">
+          <Enumerations>
+            <Enumeration
+              key="0"
+              value="DONT_INVERT_INPUT_VALUE"
+              description="Don't invert the value of the input" />
+            <Enumeration
+              key="1"
+              value="INVERT_INPUT_VALUE"
+              description="Invert the value of the input" />
+          </Enumerations>
+        </Bit>
+      </BitField>
+      <Repeated>false</Repeated>
+    </Field>
+    <Field
+      name="LOGIC_OPERAND_8">
+      <InformativeText>If this byte is present AND the NODE_ID field in the previous DIGITAL_INPUT_n is configured (not 0), this byte shall contain the logic operand to be used between the previous DIGITAL_INPUT_x and the next DIGITIAL_INPUT_y.</InformativeText>
+      <Requirement>Optional</Requirement>
+      <Format>uint8</Format>
+      <Unit>org.bluetooth.unit.unitless</Unit>
+      <Enumerations>
+        <Enumeration
+          key="0"
+          value="OPERAND_IS_UNCONFIGURED"
+          description="Reserved for UNCONFIGURED" />
+        <Enumeration
+          key="1"
+          value="OPERAND_IS_AND"
+          description="Bitwise AND " />
+        <Enumeration
+          key="2"
+          value="OPERAND_IS_NAND"
+          description="Bitwise NAND" />
+        <Enumeration
+          key="3"
+          value="OPERAND_IS_OR"
+          description="Bitwise OR" />
+        <Enumeration
+          key="4"
+          value="OPERAND_IS_NOR"
+          description="Bitwise NOR" />
+        <Enumeration
+          key="5"
+          value="OPERAND_IS_XOR"
+          description="Bitwise XOR" />
+        <Enumeration
+          key="6"
+          value="OPERAND_IS_XNOR"
+          description="Bitwise XNOR" />
+        <ReservedForFutureUse
+          start="7"
+          end="255"
+          name="RFU" />
+      </Enumerations>
+      <Repeated>false</Repeated>
+    </Field>
+    <Field
+      name="DIGITAL_INPUT_I">
+      <InformativeText>This field shall be present on the condition that the previous LOGIC_OPERAND_n field is present and does NOT have the UNCONFIGURED value (0)
+This bit-field sets the NODE_ID, DIGITAL_INPUT_NUMBER as well as digital input value inversion of this configured input in the logic algorithm which controls the status of Digital Output 4 (Relay 4).
+NODE_ID = 0 shall be reserved for when this parameter is UNCONFIGURED, in which case this input's value shall always be interpreted as 0 (inactive).</InformativeText>
+      <Requirement>Conditional</Requirement>
+      <Format>uint8</Format>
+      <Unit>org.bluetooth.unit.unitless</Unit>
+      <BitField>
+        <Bit
+          index="0"
+          size="4"
+          name="NODE_ID">
+          <Enumerations>
+            <Enumeration_Range
+              start="1"
+              end="15"
+              name="NODE_ID" />
+            <Reserved
+              start="0"
+              end="0"
+              name="UNCONFIGURED" />
+          </Enumerations>
+        </Bit>
+        <Bit
+          index="4"
+          size="3"
+          name="DIGITAL_INPUT_NUMBER">
+          <Enumerations>
+            <Enumeration_Range
+              start="0"
+              end="7"
+              name="DIGITAL_INPUT_NUMBER" />
+          </Enumerations>
+        </Bit>
+        <Bit
+          index="7"
+          size="1"
+          name="INVERT_VALUE">
+          <Enumerations>
+            <Enumeration
+              key="0"
+              value="DONT_INVERT_INPUT_VALUE"
+              description="Don't invert the value of the input" />
+            <Enumeration
+              key="1"
+              value="INVERT_INPUT_VALUE"
+              description="Invert the value of the input" />
+          </Enumerations>
+        </Bit>
+      </BitField>
+      <Repeated>false</Repeated>
+    </Field>
+    <Field
+      name="DIGITAL_OUTPUT_CONTROL">
+      <InformativeText>This byte shall directly control the status of this output</InformativeText>
+      <Requirement>C2</Requirement>
+      <Format>uint8</Format>
+      <Unit>org.bluetooth.unit.unitless</Unit>
+      <BitField>
+        <Bit
+          index="0"
+          size="1"
+          name="STATUS">
+          <Enumerations>
+            <Enumeration
+              key="0"
+              value="OFF"
+              description="The output is in the OFF state. This shall also be the default value after a power cycle." />
+            <Enumeration
+              key="1"
+              value="ON"
+              description="The output is in the ON state." />
+          </Enumerations>
+        </Bit>
+        <Bit
+          index="1"
+          size="1"
+          name="CFG_PERSISTENCE">
+          <Enumerations>
+            <Enumeration
+              key="0"
+              value="NONE"
+              description="When the device is power-cycled, the output status shall ALWAYS default to the OFF position." />
+            <Enumeration
+              key="1"
+              value="ALWAYS"
+              description="When the device is power-cycled, the output status shall return to the pre-power-cycle state." />
+          </Enumerations>
+        </Bit>
+        <Bit
+          index="2"
+          size="6"
+          name="RFU" />
+      </BitField>
+      <Repeated>false</Repeated>
+    </Field>
+  </Value>
+</Characteristic>

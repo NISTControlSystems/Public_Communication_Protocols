@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Characteristic xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:noNamespaceSchemaLocation="http://schemas.bluetooth.org/Documents/characteristic.xsd"
+  type="com.nistcontrol.characteristic.an_out3_cfg"
+  uuid="c7aa4b70-08d4-471f-a8b7-94e2377e37b9"
+  name="AN_OUT3_CFG">
+  <Value>
+    <Field
+      name="GENERAL_CFG">
+      <InformativeText>This byte shall determine which fields of this chracteristic shall be populated.</InformativeText>
+      <Requirement>Mandatory</Requirement>
+      <Format>uint8</Format>
+      <Unit>org.bluetooth.unit.unitless</Unit>
+      <Enumerations>
+        <Enumeration
+          key="0"
+          value="UNCONFIGURED"
+          description="When UNCONFIGURED, the output shall be locked in the OFF condition." />
+        <Enumeration
+          key="1"
+          value="NETWORK_CONTROLLED"
+          requires="C1"
+          description="This output will be controlled by a single Analogue Input on any single NODE_ID in the network." />
+        <Enumeration
+          key="2"
+          value="BLUETOOTH_CONTROLLED"
+          requires="C2"
+          description="This output shall be controlled via Bluetooth " />
+        <ReservedForFutureUse
+          start="3"
+          end="255"
+          name="RFU" />
+      </Enumerations>
+      <Repeated>false</Repeated>
+    </Field>
+    <Field
+      name="ANALOGUE_INPUT">
+      <InformativeText>This bit-field sets the NODE_ID and ANALOGUE_INPUT_NUMBER which DIRECTLY or INVERSELY controls the value of this Analogue Output.
+NODE_ID = 0 shall be reserved for when this parameter is UNCONFIGURED, in which case the Analogue Output shall always be OFF.</InformativeText>
+      <Requirement>C1</Requirement>
+      <Format>8bit</Format>
+      <Unit>org.bluetooth.unit.unitless</Unit>
+      <BitField>
+        <Bit
+          index="0"
+          size="4"
+          name="NODE_ID">
+          <Enumerations>
+            <Enumeration_Range
+              start="1"
+              end="15"
+              name="NODE_ID" />
+            <Enumeration_Range
+              start="0"
+              end="0"
+              name="UNCONFIGURED" />
+          </Enumerations>
+        </Bit>
+        <Bit
+          index="4"
+          size="2"
+          name="ANALOGUE_INPUT_NUMBER">
+          <Enumerations>
+            <Enumeration_Range
+              start="0"
+              end="3"
+              name="ANALOGUE_INPUT_NUMBER" />
+          </Enumerations>
+        </Bit>
+        <Bit
+          index="6"
+          size="1"
+          name="INVERT_VALUE">
+          <Enumerations>
+            <Enumeration
+              key="0"
+              value="DONT_INVERT_INPUT_VALUE"
+              description="Don't invert the value of the input" />
+            <Enumeration
+              key="1"
+              value="INVERT_INPUT_VALUE"
+              description="Invert the value of the input" />
+          </Enumerations>
+        </Bit>
+        <Bit
+          index="7"
+          size="1"
+          name="RESERVED" />
+      </BitField>
+      <Repeated>false</Repeated>
+    </Field>
+    <Field
+      name="ANALOGUE_VALUE">
+      <InformativeText>This byte shall determine which fields of this chracteristic shall be populated.</InformativeText>
+      <Requirement>C2</Requirement>
+      <Format>uint16</Format>
+      <Unit>org.bluetooth.unit.unitless</Unit>
+      <BitField>
+        <Bit
+          index="0"
+          size="10"
+          name="RAW_VALUE" />
+        <Bit
+          index="10"
+          size="6"
+          name="RFU" />
+      </BitField>
+      <Repeated>false</Repeated>
+    </Field>
+  </Value>
+</Characteristic>

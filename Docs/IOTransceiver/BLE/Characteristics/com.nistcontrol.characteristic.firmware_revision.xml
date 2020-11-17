@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Characteristic xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:noNamespaceSchemaLocation="http://schemas.bluetooth.org/Documents/characteristic.xsd"
+  type="com.nistcontrol.characteristic.firmware_revision"
+  uuid="c7aa87d2-08d4-471f-a8b7-94e2377e37b9"
+  name="FIRMWARE_REVISION">
+  <Value>
+    <Field
+      name="Firmware_Revision_String">
+      <Requirement>Mandatory</Requirement>
+      <Format>utf8s</Format>
+      <Unit>org.bluetooth.unit.unitless</Unit>
+      <AdditionalValues />
+      <Repeated>false</Repeated>
+    </Field>
+  </Value>
+</Characteristic>

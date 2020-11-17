@@ -1,0 +1,249 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Characteristic xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:noNamespaceSchemaLocation="http://schemas.bluetooth.org/Documents/characteristic.xsd"
+  type="com.nistcontrol.characteristic.network_stats"
+  uuid="c7aa202d-08d4-471f-a8b7-94e2377e37b9"
+  name="NETWORK_STATS">
+  <Value>
+    <Field
+      name="LOCAL NODE INFO">
+      <InformativeText>This 16-bit bitfield shall contain general info regarding the local node.</InformativeText>
+      <Requirement>Mandatory</Requirement>
+      <Format>8bit</Format>
+      <Unit>org.bluetooth.unit.unitless</Unit>
+      <BitField>
+        <Bit
+          index="0"
+          size="4"
+          name="NODE_ID">
+          <Enumerations>
+            <Enumeration_Range
+              start="0"
+              end="0"
+              name="UNCOMMISSIONED" />
+            <Enumeration_Range
+              start="1"
+              end="15"
+              name="COMMISSIONED_NODE_ID" />
+          </Enumerations>
+        </Bit>
+        <Bit
+          index="4"
+          size="4"
+          name="NUM_NODES_IN_NETWORK">
+          <Enumerations>
+            <Enumeration_Range
+              start="0"
+              end="1"
+              name="INVALID" />
+          </Enumerations>
+        </Bit>
+      </BitField>
+      <Repeated>false</Repeated>
+    </Field>
+    <Field
+      name="NODE_01_RSSI">
+      <InformativeText>IF own Node ID = 1 
+THEN this field's value shall equal the TX Power expressed in dBm.
+ELSE IF no frame has been received from Node ID 1, then the value shall always be 0.
+ELSE this field's value shall be the received signal strength indication of the last frame received from Node ID 1.</InformativeText>
+      <Requirement>Mandatory</Requirement>
+      <Unit>org.bluetooth.unit.unitless</Unit>
+      <Format>uint8</Format>
+      <Repeated>false</Repeated>
+    </Field>
+    <Field
+      name="NODE_02_RSSI">
+      <InformativeText>IF own Node ID = 2 
+THEN this field's value shall equal the TX Power expressed in dBm.
+ELSE IF no frame has been received from Node ID 2, then the value shall always be 0.
+ELSE this field's value shall be the received signal strength indication of the last frame received from Node ID 2.</InformativeText>
+      <Requirement>Mandatory</Requirement>
+      <Format>uint8</Format>
+      <Unit>org.bluetooth.unit.unitless</Unit>
+      <Repeated>false</Repeated>
+    </Field>
+    <Field
+      name="NODE_03_RSSI">
+      <InformativeText>IF own Node ID = 3
+THEN this field's value shall equal the TX Power expressed in dBm.
+ELSE IF no frame has been received from Node ID 3, then the value shall always be 0.
+ELSE this field's value shall be the received signal strength indication of the last frame received from Node ID 3</InformativeText>
+      <Requirement>Mandatory</Requirement>
+      <Format>uint8</Format>
+      <Unit>org.bluetooth.unit.unitless</Unit>
+      <Repeated>false</Repeated>
+    </Field>
+    <Field
+      name="NODE_04_RSSI">
+      <InformativeText>IF own Node ID = 4 
+THEN this field's value shall equal the TX Power expressed in dBm.
+ELSE IF no frame has been received from Node ID 4, then the value shall always be 0.
+ELSE this field's value shall be the received signal strength indication of the last frame received from Node ID 4.</InformativeText>
+      <Requirement>Mandatory</Requirement>
+      <Format>uint8</Format>
+      <Unit>org.bluetooth.unit.unitless</Unit>
+      <Repeated>false</Repeated>
+    </Field>
+    <Field
+      name="NODE_05_RSSI">
+      <InformativeText>IF own Node ID = 5 
+THEN this field's value shall equal the TX Power expressed in dBm.
+ELSE IF no frame has been received from Node ID 5, then the value shall always be 0.
+ELSE this field's value shall be the received signal strength indication of the last frame received from Node ID 5</InformativeText>
+      <Requirement>Mandatory</Requirement>
+      <Format>uint8</Format>
+      <Unit>org.bluetooth.unit.unitless</Unit>
+      <Repeated>false</Repeated>
+    </Field>
+    <Field
+      name="NODE_06_RSSI">
+      <InformativeText>IF own Node ID = 6 
+THEN this field's value shall equal the TX Power expressed in dBm.
+ELSE IF no frame has been received from Node ID 6, then the value shall always be 0.
+ELSE this field's value shall be the received signal strength indication of the last frame received from Node ID 6</InformativeText>
+      <Requirement>Mandatory</Requirement>
+      <Unit>org.bluetooth.unit.unitless</Unit>
+      <Repeated>false</Repeated>
+    </Field>
+    <Field
+      name="NODE_07_RSSI">
+      <InformativeText>IF own Node ID = 7 
+THEN this field's value shall equal the TX Power expressed in dBm.
+ELSE IF no frame has been received from Node ID 7, then the value shall always be 0.
+ELSE this field's value shall be the received signal strength indication of the last frame received from Node ID 7</InformativeText>
+      <Requirement>Mandatory</Requirement>
+      <Format>uint8</Format>
+      <Unit>org.bluetooth.unit.unitless</Unit>
+      <Repeated>false</Repeated>
+    </Field>
+    <Field
+      name="NODE_08_RSSI">
+      <InformativeText>IF own Node ID = 8 
+THEN this field's value shall equal the TX Power expressed in dBm.
+ELSE IF no frame has been received from Node ID 8, then the value shall always be 0.
+ELSE this field's value shall be the received signal strength indication of the last frame received from Node ID 8.</InformativeText>
+      <Requirement>Mandatory</Requirement>
+      <Unit>org.bluetooth.unit.unitless</Unit>
+      <Format>uint8</Format>
+      <Repeated>false</Repeated>
+    </Field>
+    <Field
+      name="NODE_09_RSSI">
+      <InformativeText>IF own Node ID = 9 
+THEN this field's value shall equal the TX Power expressed in dBm.
+ELSE IF no frame has been received from Node ID 9, then the value shall always be 0.
+ELSE this field's value shall be the received signal strength indication of the last frame received from Node ID 9.</InformativeText>
+      <Requirement>Mandatory</Requirement>
+      <Format>uint8</Format>
+      <Unit>org.bluetooth.unit.unitless</Unit>
+      <Repeated>false</Repeated>
+    </Field>
+    <Field
+      name="NODE_10_RSSI">
+      <InformativeText>IF own Node ID = 10
+THEN this field's value shall equal the TX Power expressed in dBm.
+ELSE IF no frame has been received from Node ID 10, then the value shall always be 0.
+ELSE this field's value shall be the received signal strength indication of the last frame received from Node ID 10</InformativeText>
+      <Requirement>Mandatory</Requirement>
+      <Format>uint8</Format>
+      <Unit>org.bluetooth.unit.unitless</Unit>
+      <Repeated>false</Repeated>
+    </Field>
+    <Field
+      name="NODE_11_RSSI">
+      <InformativeText>IF own Node ID = 11
+THEN this field's value shall equal the TX Power expressed in dBm.
+ELSE IF no frame has been received from Node ID 11, then the value shall always be 0.
+ELSE this field's value shall be the received signal strength indication of the last frame received from Node ID 11</InformativeText>
+      <Requirement>Mandatory</Requirement>
+      <Format>uint8</Format>
+      <Unit>org.bluetooth.unit.unitless</Unit>
+      <Repeated>false</Repeated>
+    </Field>
+    <Field
+      name="NODE_12_RSSI">
+      <InformativeText>IF own Node ID = 12
+THEN this field's value shall equal the TX Power expressed in dBm.
+ELSE IF no frame has been received from Node ID 12, then the value shall always be 0.
+ELSE this field's value shall be the received signal strength indication of the last frame received from Node ID 12</InformativeText>
+      <Requirement>Mandatory</Requirement>
+      <Format>uint8</Format>
+      <Unit>org.bluetooth.unit.unitless</Unit>
+      <Repeated>false</Repeated>
+    </Field>
+    <Field
+      name="NODE_13_RSSI">
+      <InformativeText>IF own Node ID = 13
+THEN this field's value shall equal the TX Power expressed in dBm.
+ELSE IF no frame has been received from Node ID 13, then the value shall always be 0.
+ELSE this field's value shall be the received signal strength indication of the last frame received from Node ID 13</InformativeText>
+      <Requirement>Mandatory</Requirement>
+      <Format>uint8</Format>
+      <Unit>org.bluetooth.unit.unitless</Unit>
+      <Repeated>false</Repeated>
+    </Field>
+    <Field
+      name="NODE_14_RSSI">
+      <InformativeText>IF own Node ID = 14
+THEN this field's value shall equal the TX Power expressed in dBm.
+ELSE IF no frame has been received from Node ID 14, then the value shall always be 0.
+ELSE this field's value shall be the received signal strength indication of the last frame received from Node ID 14</InformativeText>
+      <Requirement>Mandatory</Requirement>
+      <Format>uint8</Format>
+      <Unit>org.bluetooth.unit.unitless</Unit>
+      <Repeated>false</Repeated>
+    </Field>
+    <Field
+      name="NODE_15_RSSI">
+      <InformativeText>IF own Node ID = 15
+THEN this field's value shall equal the TX Power expressed in dBm.
+ELSE IF no frame has been received from Node ID 15, then the value shall always be 0.
+ELSE this field's value shall be the received signal strength indication of the last frame received from Node ID 15</InformativeText>
+      <Requirement>Mandatory</Requirement>
+      <Format>uint8</Format>
+      <Unit>org.bluetooth.unit.unitless</Unit>
+      <Repeated>false</Repeated>
+    </Field>
+    <Field
+      name="TOTAL_TX_SLOTS">
+      <InformativeText>This field contains a 24-bit counter indicating the number of TX slots this node has had.
+
+The counter is reset only when the system resets</InformativeText>
+      <Requirement>Mandatory</Requirement>
+      <Format>uint24</Format>
+      <Unit>org.bluetooth.unit.unitless</Unit>
+      <Repeated>false</Repeated>
+    </Field>
+    <Field
+      name="SKIPPED_TX_SLOTS">
+      <InformativeText>This field contains a 24-bit counter of the number of TX slots skipped due to inability to transmit due to no radio silence detected during TX slot.
+
+The counter is reset only when the system resets</InformativeText>
+      <Requirement>Mandatory</Requirement>
+      <Format>uint24</Format>
+      <Unit>org.bluetooth.unit.unitless</Unit>
+      <Repeated>false</Repeated>
+    </Field>
+    <Field
+      name="RXD_OTHER_NK_FRAMES">
+      <InformativeText>This field contains a 24-bit counter which indicates the number of frames received from the radio conaining a different network key than the node's saved network key.
+
+The counter is reset only when the system resets</InformativeText>
+      <Requirement>Mandatory</Requirement>
+      <Format>uint24</Format>
+      <Unit>org.bluetooth.unit.unitless</Unit>
+      <Repeated>false</Repeated>
+    </Field>
+    <Field
+      name="BAD_CHECKSUM_FRAMES">
+      <InformativeText>This field contains a 24-bit counter which indicates the number of frames received from the radio which was not processed by the host due to a failed Checksum Verification procedure
+
+The counter is reset only when the system resets</InformativeText>
+      <Requirement>Mandatory</Requirement>
+      <Unit>org.bluetooth.unit.unitless</Unit>
+      <Format>uint24</Format>
+      <Repeated>false</Repeated>
+    </Field>
+  </Value>
+</Characteristic>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Characteristic xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:noNamespaceSchemaLocation="http://schemas.bluetooth.org/Documents/characteristic.xsd"
+  type="com.nistcontrol.characteristic.manufacturer_name"
+  uuid="c7aabb91-08d4-471f-a8b7-94e2377e37b9"
+  name="MANUFACTURER_NAME">
+  <Value>
+    <Field
+      name="Manufacturer_Name_String">
+      <Requirement>Mandatory</Requirement>
+      <Format>utf8s</Format>
+      <Unit>org.bluetooth.unit.unitless</Unit>
+      <AdditionalValues />
+      <Repeated>false</Repeated>
+    </Field>
+  </Value>
+</Characteristic>

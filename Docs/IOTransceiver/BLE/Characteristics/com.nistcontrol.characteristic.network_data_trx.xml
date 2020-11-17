@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Characteristic xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:noNamespaceSchemaLocation="http://schemas.bluetooth.org/Documents/characteristic.xsd"
+  type="com.nistcontrol.characteristic.network_data_trx"
+  uuid="c7aaaf61-08d4-471f-a8b7-94e2377e37b9"
+  name="NETWORK_DATA_TRX">
+  <Value>
+    <Field
+      name="TOTAL_PACKETS">
+      <InformativeText>Since the Long Range Network's frame could have a total length longer than the BLE module's MTU, this byte contains the total number of packets (into which the Long Range Network's frame was split up).</InformativeText>
+      <Requirement>Mandatory</Requirement>
+      <Format>uint8</Format>
+      <Unit>org.bluetooth.unit.unitless</Unit>
+      <BitField />
+      <Repeated>false</Repeated>
+    </Field>
+    <Field
+      name="PACKET_NUMBER">
+      <InformativeText>This packet's number out of the total number of packets (as entered in the "Total Packets" field of this characteristic).</InformativeText>
+      <Requirement>Mandatory</Requirement>
+      <Format>uint8</Format>
+      <Unit>org.bluetooth.unit.unitless</Unit>
+      <Repeated>false</Repeated>
+    </Field>
+    <Field
+      name="PACKET_DATA">
+      <InformativeText>This field contains the packet data (or fraction thereof) as specified by the previous two bytes in this characteristic.</InformativeText>
+      <Requirement>Mandatory</Requirement>
+      <Format>uint8[]</Format>
+      <Unit>org.bluetooth.unit.unitless</Unit>
+      <Repeated>false</Repeated>
+    </Field>
+  </Value>
+</Characteristic>

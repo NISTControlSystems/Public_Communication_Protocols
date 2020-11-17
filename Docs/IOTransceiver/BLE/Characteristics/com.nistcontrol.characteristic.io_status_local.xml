@@ -1,0 +1,328 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Characteristic xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:noNamespaceSchemaLocation="http://schemas.bluetooth.org/Documents/characteristic.xsd"
+  type="com.nistcontrol.characteristic.io_status_local"
+  uuid="c7aa8aca-08d4-471f-a8b7-94e2377e37b9"
+  name="IO_STATUS_LOCAL">
+  <Value>
+    <Field
+      name="IO Status Local">
+      <InformativeText>This field contains the IO Status of the local node</InformativeText>
+      <Requirement>Mandatory</Requirement>
+      <Format>struct</Format>
+      <Unit>org.bluetooth.unit.unitless</Unit>
+      <BitField>
+        <Bit
+          index="0"
+          size="4"
+          name="UPDATE COUNTER" />
+        <Bit
+          index="4"
+          size="4"
+          name="IO HARDWARE">
+          <Enumerations>
+            <Enumeration
+              key="0"
+              value="0"
+              description="0 Discrete Inputs, 0 Relays, 0 Analogue Inputs, 0 Analogue Outputs" />
+            <Enumeration
+              key="1"
+              value="1"
+              description="0 Discrete Inputs, 8 Relays, 0 Analogue Inputs, 0 Analogue Outputs" />
+            <Enumeration
+              key="10"
+              value="10"
+              description="4 Discrete Inputs, 4 Relays, 0 Analogue Inputs, 0 Analogue Outputs" />
+            <Enumeration
+              key="11"
+              value="11"
+              description="4 Discrete Inputs, 4 Relays, 0 Analogue Inputs, 4 Analogue Outputs" />
+            <Enumeration
+              key="12"
+              value="12"
+              description="4 Discrete Inputs, 4 Relays, 2 Analogue Inputs, 2 Analogue Outputs" />
+            <Enumeration
+              key="13"
+              value="13"
+              description="4 Discrete Inputs, 4 Relays, 4 Analogue Inputs, 0 Analogue Outputs" />
+            <Enumeration
+              key="14"
+              value="14"
+              description="8 Discrete Inputs, 0 Relays, 0 Analogue Inputs, 0 Analogue Outputs" />
+            <Enumeration
+              key="15"
+              value="15"
+              description="8 Discrete Inputs, 0 Relays, 2 Analogue Inputs, 2 Analogue Outputs" />
+            <Enumeration
+              key="2"
+              value="2"
+              description="0 Discrete Inputs, 8 Relays, 2 Analogue Inputs, 2 Analogue Outputs" />
+            <Enumeration
+              key="3"
+              value="3"
+              description="1 Discrete Input, 1 Relay, 1 Analogue Input, 1 Analogue Output" />
+            <Enumeration
+              key="4"
+              value="4"
+              description="1 Discrete Input, 1 Relay, 2 Analogue Inputs, 2 Analogue Outputs" />
+            <Enumeration
+              key="5"
+              value="5"
+              description="2 Discrete Inputs, 2 Relays, 0 Analogue Inputs, 0 Analogue Outputs" />
+            <Enumeration
+              key="6"
+              value="6"
+              description="2 Discrete Inputs, 2 Relays, 0 Analogue Inputs, 4 Analogue Outputs" />
+            <Enumeration
+              key="7"
+              value="7"
+              description="2 Discrete Inputs, 2 Relays, 1 Analogue Input, 1 Analogue Output" />
+            <Enumeration
+              key="8"
+              value="8"
+              description="2 Discrete Inputs, 2 Relays, 2 Analogue Inputs, 2 Analogue Outputs" />
+            <Enumeration
+              key="9"
+              value="9"
+              description="2 Discrete Inputs, 2 Relays, 4 Analogue Inputs, 0 Analogue Outputs" />
+          </Enumerations>
+        </Bit>
+        <Bit
+          index="8"
+          size="1"
+          name="D_OUT0_OR_IN7">
+          <Enumerations>
+            <Enumeration
+              key="0"
+              value="0"
+              description="OFF" />
+            <Enumeration
+              key="1"
+              value="1"
+              description="ON" />
+          </Enumerations>
+        </Bit>
+        <Bit
+          index="9"
+          size="1"
+          name="D_OUT1_OR_IN6">
+          <Enumerations>
+            <Enumeration
+              key="0"
+              value="0"
+              description="OFF" />
+            <Enumeration
+              key="1"
+              value="1"
+              description="ON" />
+          </Enumerations>
+        </Bit>
+        <Bit
+          index="10"
+          size="1"
+          name="D_OUT2_OR_IN5">
+          <Enumerations>
+            <Enumeration
+              key="0"
+              value="0"
+              description="OFF" />
+            <Enumeration
+              key="1"
+              value="1"
+              description="ON" />
+          </Enumerations>
+        </Bit>
+        <Bit
+          index="11"
+          size="1"
+          name="D_OUT3_OR_IN4">
+          <Enumerations>
+            <Enumeration
+              key="0"
+              value="0"
+              description="OFF" />
+            <Enumeration
+              key="1"
+              value="1"
+              description="ON" />
+          </Enumerations>
+        </Bit>
+        <Bit
+          index="12"
+          size="1"
+          name="D_OUT4_OR_IN3">
+          <Enumerations>
+            <Enumeration
+              key="0"
+              value="0"
+              description="OFF" />
+            <Enumeration
+              key="1"
+              value="1"
+              description="ON" />
+          </Enumerations>
+        </Bit>
+        <Bit
+          index="13"
+          size="1"
+          name="D_OUT5_OR_IN2">
+          <Enumerations>
+            <Enumeration
+              key="0"
+              value="0"
+              description="OFF" />
+            <Enumeration
+              key="1"
+              value="1"
+              description="ON" />
+          </Enumerations>
+        </Bit>
+        <Bit
+          index="14"
+          size="1"
+          name="D_OUT6_OR_IN1">
+          <Enumerations>
+            <Enumeration
+              key="0"
+              value="0"
+              description="OFF" />
+            <Enumeration
+              key="1"
+              value="1"
+              description="ON" />
+          </Enumerations>
+        </Bit>
+        <Bit
+          index="15"
+          size="1"
+          name="D_OUT7_OR_IN0">
+          <Enumerations>
+            <Enumeration
+              key="0"
+              value="0"
+              description="OFF" />
+            <Enumeration
+              key="1"
+              value="1"
+              description="ON" />
+          </Enumerations>
+        </Bit>
+        <Bit
+          index="16"
+          size="10"
+          name="AN_OUT0_OR_IN3" />
+        <Bit
+          index="26"
+          size="10"
+          name="AN_OUT1_OR_IN2" />
+        <Bit
+          index="36"
+          size="10"
+          name="AN_OUT2_OR_IN1" />
+        <Bit
+          index="46"
+          size="10"
+          name="AN_OUT3_OR_IN0" />
+        <Bit
+          index="56"
+          size="8"
+          name="RFU" />
+      </BitField>
+      <Repeated>false</Repeated>
+    </Field>
+    <Field
+      name="LOCAL NODE INFO">
+      <InformativeText>This 16-bit bitfield shall contain general info regarding the local node.</InformativeText>
+      <Requirement>Mandatory</Requirement>
+      <Format>16bit</Format>
+      <Unit>org.bluetooth.unit.unitless</Unit>
+      <BitField>
+        <Bit
+          index="0"
+          size="4"
+          name="NODE_ID">
+          <Enumerations>
+            <Enumeration_Range
+              start="0"
+              end="0"
+              name="UNCOMMISSIONED" />
+            <Enumeration_Range
+              start="1"
+              end="15"
+              name="COMMISSIONED_NODE_ID" />
+          </Enumerations>
+        </Bit>
+        <Bit
+          index="4"
+          size="4"
+          name="NUM_NODES_IN_NETWORK">
+          <Enumerations>
+            <Enumeration_Range
+              start="0"
+              end="0"
+              name="UNKNOWN" />
+          </Enumerations>
+        </Bit>
+        <Bit
+          index="8"
+          size="1"
+          name="ENCRYPTION">
+          <Enumerations>
+            <Enumeration
+              key="0"
+              value="FALSE"
+              description="The data in the Long Range Network packets are not encrypted." />
+            <Enumeration
+              key="1"
+              value="TRUE"
+              description="The data in the Long Range Network packets are encrypted." />
+          </Enumerations>
+        </Bit>
+        <Bit
+          index="9"
+          size="4"
+          name="TDMA_SLOT_LENGTH" />
+        <Bit
+          index="13"
+          size="3"
+          name="RF_SPREAD_FACTOR">
+          <Enumerations>
+            <Enumeration
+              key="0"
+              value="0"
+              description="UNCOMMISSIONED" />
+            <Enumeration
+              key="1"
+              value="1"
+              description="128 Chips" />
+            <Enumeration
+              key="2"
+              value="2"
+              description="256 Chips" />
+            <Enumeration
+              key="3"
+              value="3"
+              description="512 Chips" />
+            <Enumeration
+              key="4"
+              value="4"
+              description="1024 Chips" />
+            <Enumeration
+              key="5"
+              value="5"
+              description="2048 Chips" />
+            <Enumeration
+              key="6"
+              value="6"
+              description="4096 Chips" />
+            <Enumeration
+              key="7"
+              value="7"
+              description="RFU" />
+          </Enumerations>
+        </Bit>
+      </BitField>
+      <Repeated>false</Repeated>
+    </Field>
+  </Value>
+</Characteristic>

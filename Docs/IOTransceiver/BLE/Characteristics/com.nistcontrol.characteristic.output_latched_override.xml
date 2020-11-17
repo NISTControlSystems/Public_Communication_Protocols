@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Characteristic xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:noNamespaceSchemaLocation="http://schemas.bluetooth.org/Documents/characteristic.xsd"
+  type="com.nistcontrol.characteristic.output_latched_override"
+  uuid="c7aa37b4-08d4-471f-a8b7-94e2377e37b9"
+  name="OUTPUT_LATCHED_OVERRIDE">
+  <Value>
+    <Field
+      name="NODE_IDENTIFICATION">
+      <InformativeText>This field indicates the Node ID and Hardware Config to which these settings are applicable.</InformativeText>
+      <Requirement>Mandatory</Requirement>
+      <Format>8bit</Format>
+      <Unit>org.bluetooth.unit.unitless</Unit>
+      <BitField>
+        <Bit
+          index="0"
+          size="4"
+          name="NODE_ID" />
+        <Bit
+          index="4"
+          size="4"
+          name="IO_HARDWARE_CFG" />
+      </BitField>
+      <Repeated>false</Repeated>
+    </Field>
+    <Field
+      name="LATCHED_OVERRIDE_CFG">
+      <InformativeText>This field contains the configuration of the latched override feature for relevant outputs.</InformativeText>
+      <Requirement>Mandatory</Requirement>
+      <Unit>org.bluetooth.unit.unitless</Unit>
+      <BitField>
+        <Bit
+          index="0"
+          size="1"
+          name="D_OUT_0" />
+        <Bit
+          index="1"
+          size="1"
+          name="D_OUT_1" />
+        <Bit
+          index="2"
+          size="1"
+          name="D_OUT_2" />
+        <Bit
+          index="3"
+          size="1"
+          name="D_OUT_3" />
+        <Bit
+          index="4"
+          size="1"
+          name="D_OUT_4_OR_AN_OUT_3" />
+        <Bit
+          index="5"
+          size="1"
+          name="D_OUT_5_OR_AN_OUT_2" />
+        <Bit
+          index="6"
+          size="1"
+          name="D_OUT_6_OR_AN_OUT_1" />
+        <Bit
+          index="7"
+          size="1"
+          name="D_OUT_7_OR_AN_OUT_0" />
+      </BitField>
+      <Format>8bit</Format>
+      <Repeated>false</Repeated>
+    </Field>
+    <Field
+      name="D_OUT_OVERRIDE_VALUES">
+      <InformativeText>This field contains the override values for the Digital Outputs</InformativeText>
+      <Requirement>Mandatory</Requirement>
+      <Unit>org.bluetooth.unit.unitless</Unit>
+      <BitField>
+        <Bit
+          index="0"
+          size="1"
+          name="D_OUT_0" />
+        <Bit
+          index="1"
+          size="1"
+          name="D_OUT_1" />
+        <Bit
+          index="2"
+          size="1"
+          name="D_OUT_2" />
+        <Bit
+          index="3"
+          size="1"
+          name="D_OUT_3" />
+        <Bit
+          index="4"
+          size="1"
+          name="D_OUT_4" />
+        <Bit
+          index="5"
+          size="1"
+          name="D_OUT_5" />
+        <Bit
+          index="6"
+          size="1"
+          name="D_OUT_6" />
+        <Bit
+          index="7"
+          size="1"
+          name="D_OUT_7" />
+      </BitField>
+      <Format>8bit</Format>
+      <Repeated>false</Repeated>
+    </Field>
+    <Field
+      name="AN_OUT_OVERRIDE_VALUES">
+      <InformativeText>This field contains the override values for the Analogue Outputs</InformativeText>
+      <Requirement>Mandatory</Requirement>
+      <Unit>org.bluetooth.unit.unitless</Unit>
+      <BitField>
+        <Bit
+          index="0"
+          size="10"
+          name="AN_OUT0_VALUE" />
+        <Bit
+          index="10"
+          size="6"
+          name="AN_OUT0_RFU" />
+        <Bit
+          index="16"
+          size="10"
+          name="AN_OUT1_VALUE" />
+        <Bit
+          index="26"
+          size="6"
+          name="AN_OUT1_RFU" />
+        <Bit
+          index="32"
+          size="10"
+          name="AN_OUT2_VALUE" />
+        <Bit
+          index="42"
+          size="6"
+          name="AN_OUT2_RFU" />
+        <Bit
+          index="48"
+          size="10"
+          name="AN_OUT3_VALUE" />
+        <Bit
+          index="58"
+          size="6"
+          name="AN_OUT3_RFU" />
+      </BitField>
+      <Repeated>false</Repeated>
+    </Field>
+  </Value>
+</Characteristic>
