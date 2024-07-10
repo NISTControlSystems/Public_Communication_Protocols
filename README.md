@@ -6,8 +6,46 @@ This repo shall contain the communication protocols to communicate with some pro
 #### Related Products
 - All Motorscope [three phase](https://nistcontrol.com/product-category/three-phase/) motor protection relays
 - All Motorscope [single phase](https://nistcontrol.com/product-category/single-phase/) motor protection relays
+
 #### Protocol Doc
 - [NIST_StatusOnly_Serial_Protocol.pdf](https://github.com/NISTControlSystems/Public_Communication_Protocols/blob/main/Docs/Motorscope/UART/NIST_StatusOnly_Serial_Protocol.pdf)  This file describes the protocol used on the 4 pin TTL UART port, situated next to the three status LEDs of all Motorscope products.
+
+#### 4 pin TTL UART pinout
+![image](https://github.com/NISTControlSystems/Public_Communication_Protocols/assets/40263983/377b86b9-1e38-45a0-ba14-de1eafeb5210)
+
+**NOTES:**
+- Depending on the model, V+ could be anything between 5VDC and 18VDC.
+- V+ is a low-current output (do not draw more than 50mA)
+- RX (data into the Motorscope) is 5V tolerant.
+- Depending on the model, TX (data out of the Motorscope) may be around 5V or 3.3V when HIGH.
+
+#### Default UART Communication Settings
+<table>
+  <tr>
+    <th>Baudrate</th>
+    <td>9600</td>
+  </tr>
+  <tr>
+    <th>Data bits</th>
+    <td>8</td>
+  </tr>
+  <tr>
+    <th>Stop bits</th>
+    <td>1</td>
+  </tr>
+  <tr>
+    <th>Parity</th>
+    <td>None</td>
+  </tr>
+  <tr>
+    <th>Flow Control</th>
+    <td>None</td>
+  </tr>
+</table>
+
+
+
+
 
 ### BLE Communication
 #### Related Products
